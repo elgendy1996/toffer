@@ -1,0 +1,34 @@
+<!-- Header -->
+<ion-header [translucent]="true" class="ion-no-border">
+    <ion-toolbar id="toolbar">
+
+        <!-- Menu Option -->
+        <ion-buttons id="menu-button" slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+
+        <!-- Searchbar in a Toolbar -->
+        <ion-searchbar id="searchbar"></ion-searchbar>
+
+        <!-- barcode Button Option -->
+        <ion-buttons slot="end">
+            <ion-button id="barcode" (click)="gotoCartPage()">
+                <ion-icon name="barcode-sharp"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<!-- Contents -->
+<ion-content id="home" fullscreen>
+
+    <!-- Top Banner Slider -->
+    <app-home-top-slider></app-home-top-slider>
+
+    <!-- Categories -->
+    <app-categories></app-categories>
+
+    <!-- Featured Products -->
+    <app-featured-products></app-featured-products>
+
+</ion-content>

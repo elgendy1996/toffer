@@ -1,0 +1,275 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Toffer Store </title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css"
+		media="screen, projection">
+	<style type="text/css" media="screen">
+		p,
+		table,
+		hr,
+		.box {
+			margin-bottom: 25px;
+		}
+
+		.box p {
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+
+		<h3 class="center alt">&ldquo;Toffer Store&rdquo; Documentation by &Mo El-Gendy;ThemesBuckets&rdquo; v1.0</h3>
+
+		<hr>
+
+		<h1 class="center">&ldquo;Toffer Store&rdquo;</h1>
+
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+						Created: 04/11/2021<br>
+						By: Mo El-Gendy<br>
+						Email: <a href="mailto:mo.elgendy1996@gmail.com">themebucketbd@gmail.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->
+
+			<div class="span-12 last">
+
+			</div>
+		</div><!-- end div .borderTop -->
+
+		<hr>
+
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#Prerequisite">Prerequisite</a></li>
+			<li><a href="#setup">Environment Setup</a></li>
+			<li><a href="#run">Run</a></li>
+			<li><a href="#BuildAndroid">Build For Android</a></li>
+			<li><a href="#BuildIOS">Build For IOS</a></li>
+			<li><a href="#Testing">Testing App</a></li>
+			<li><a href="#QuickStart">QuickStart Guide</a></li>
+			<li><a href="#theming">Theming your Ionic App</a></li>
+			<li><a href="#Screens">Pages</a></li>
+		</ol>
+
+		<hr>
+
+		<!-- Prerequisite -->
+		<h3 id="Prerequisite"><strong>Prerequisite</strong> - <a href="#toc">top</a></h3>
+		<p>1. You must have basic programming knowledge/ JavaScript knowledge before going inside this project. You must
+			familiar
+			with Angular8, Ionicframework. Basic programming / JavaScript/TypeScript.</p>
+		<p>2. Need to install the latest version of the Ionic CLI and Cordova. Verify that you are running latest
+			version of node and
+			npm. Older versions produce errors, but
+			newer versions are fine.</p>
+
+		<hr>
+
+		<!-- Environment Setup -->
+		<h3 id="setup"><strong>Environment Setup</strong> - <a href="#toc">top</a></h3>
+		<p>Setup your OS environment to install the Ionic CLI and Cordova for native app development.</p>
+		<figure class="highlight">
+			<pre><code class="language-bash hljs" data-lang="bash">npm install -g ionic</code></pre>
+		</figure>
+		<br>
+		<p>You may need to add “sudo” in front of these commands to install the utilities globally</p>
+
+		<p>For more information please see the Ionic Instalation doc - <a
+				href="https://ionicframework.com/docs/installation/cli"
+				target="_blank">https://ionicframework.com/docs/installation/cli</a></p>
+
+		<hr />
+		<!-- RUN -->
+		<h3 id="run"><strong>Run</strong> - <a href="#toc">top</a></h3>
+		<p>
+			Unzip the downloaded ecommerce project and open a terminal window `cd` into the project root directory and
+			install dependent
+			packages by running `npm install` and run the command `ionic serve`. The server will be up & running on
+			localhost 8100
+			port. At browser window, open http://localhost:8100.
+		</p>
+		<p>Run Commands</p>
+		<figure class="highlight">
+			<pre><code class="language-bash hljs" data-lang="bash">$ ionic serve<br>$ ionic serve --lab</code></pre>
+		</figure>
+
+		<hr />
+		<!-- Build Android  -->
+		<h3 id="BuildAndroid"><strong>Build For Android</strong> - <a href="#toc">top</a></h3>
+		<br>
+		<p><strong>Requirements</strong></p>
+		<ul>
+			<li>Android Studio</li>
+			<li>Updated Android SDK tools, platform and component dependencies. Available through Android Studio’s SDK
+				Manager Add android
+				platform with the CLI :</li>
+		</ul>
+		<figure class="highlight">
+			<pre><code class="language-bash hljs" data-lang="bash">$ ionic platform add android<br>$ ionic build android</code></pre>
+		</figure>
+		<br>
+		<p>Android Production Builds (release.apk)/Publishing your app</p>
+
+		<figure class="highlight">
+			<pre><code class="language-bash hljs" data-lang="bash">$ cordova plugin rm cordova-plugin-console<br>$ cordova build --release android<br>$ keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000<br>$ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore HelloWorld-release-unsigned.apk alias_name<br>$ zipalign -v 4 HelloWorld-release-unsigned.apk HelloWorld.apk</code></pre>
+		</figure>
+
+		<p>For more information please see the Android Setup doc - <a
+				href="https://ionicframework.com/docs/installation/android"
+				target="_blank">https://ionicframework.com/docs/installation/android </a></p>
+
+
+		<hr />
+		<!-- Build For IOS  -->
+		<h3 id="BuildIOS"><strong>Build For IOS</strong> - <a href="#toc">top</a></h3>
+		<p>You need the iOS SDK installed on your computer to build an iOS version of your application using the steps
+			below.</p>
+		<ul>
+			<li>On the command line, make sure you are in the ionic-tutorial/conference directory</li>
+			<li>Add support for the iOS platform</li>
+			<li>ionic platform add ios</li>
+			<li>This step is not required with recent versions of the Ionic CLI because the ios platform is installed by
+				default</li>
+			<li>Build the project</li>
+			<li>ionic build ios</li>
+			<li>Open conference.xcodeproj in the conference/platforms/ios directory</li>
+			<li>In Xcode, run the application on a device connected to your computer or in the iOS emulator</li>
+		</ul>
+
+		<p>For more information please see the IOS Setup doc - <a
+				href="https://ionicframework.com/docs/installation/ios"
+				target="_blank">https://ionicframework.com/docs/installation/ios</a></p>
+
+		<hr />
+		<!-- Testing  -->
+		<h3 id="Testing"><strong>Testing App</strong> - <a href="#toc">top</a></h3>
+		<p><b>Desktop Browser Testing</b></p>
+		<figure class="highlight">
+			<pre><code class="language-bash hljs" data-lang="bash">$ ionic serve</code></pre>
+		</figure>
+		<p><b>Simulator testing</b></p>
+		<figure class="highlight">
+			<pre><code class="language-bash hljs" data-lang="bash">$ ionic build ios<br>$ ionic emulate ios</code></pre>
+		</figure>
+		<p><b>Testing as a native app</b></p>
+		<figure class="highlight">
+			<pre><code class="language-bash hljs" data-lang="bash">$ ionic run android</code></pre>
+		</figure>
+
+		<hr />
+		<!-- QuickStart  -->
+		<h3 id="QuickStart"><strong>QuickStart- Step By Step Guide</strong> - <a href="#toc">top</a></h3>
+		<h2 id="toc" class="alt">Step One (Recommended)</h2>
+		<p>First, install Node.js. Then, install the latest Cordova and Ionic command-line tools in your terminal.</p>
+		<figure class="highlight">
+			<pre><code class="language-bash hljs" data-lang="bash">npm install -g ionic</code></pre>
+		</figure>
+
+		<h2 id="toc" class="alt">Step Two (Download & Install Dependencies)</h2>
+		<p>
+			<ul>
+				<li>
+					Unzip the downloaded IonTube project folder and open a terminal window.
+				</li>
+				<li>
+					`cd` into the project root directory and install dependent packages by running `npm install`
+				</li>
+			</ul>
+			<figure class="highlight">
+				<pre><code class="language-bash hljs" data-lang="bash">npm install</code></pre>
+			</figure>
+		</p>
+
+		<h2 id="toc" class="alt">Step Three (Running)</h2>
+		<h4>Desktop Browser Testing</h4>
+		<figure class="highlight">
+			<pre><code class="language-bash hljs" data-lang="bash">cd ecommerce<br>ionic serve</code></pre>
+		</figure>
+
+		<h4>Simulator testing</h4>
+		<figure class="highlight">
+			<pre><code class="language-bash hljs" data-lang="bash">ionic build ios<br>ionic emulate ios</code></pre>
+		</figure>
+		<h4>Testing as a native app</h4>
+		<figure class="highlight">
+			<pre><code class="language-bash hljs" data-lang="bash">ionic run android<br>ionic emulate ios</code></pre>
+		</figure>
+
+		<hr />
+		<!-- Theming your Ionic App  -->
+		<h3 id="theming"><strong>Theming your Ionic App</strong> - <a href="#toc">top</a></h3>
+		<p>Theme support is baked right into Ionic apps. Changing the theme is as easy as updating the `color1` variable
+			in
+			your src/theme/variables.scss
+			file:
+		</p>
+		<pre class="highlight"><code class="hljs scss"><span class="nv">--ion-color-color1: #FF8080;</span></code></pre>
+
+		<p>The fastest way to change the theme of your Ionic app is to set a new value for default, since ThemesBuckets
+			uses the default
+			color by default to style most components.</p>
+
+		<p>Our main default colors are - <b>color1, color2</b></p>
+		<p>Read More Details from <a href="https://ionicframework.com/docs/theming/themes" target="_blank">
+				https://ionicframework.com/docs/theming/themes</a></p>
+
+		<hr />
+
+		<!-- Screens  -->
+		<h3 id="Screens"><strong>Pages</strong> - <a href="#toc">top</a></h3>
+		<ul>
+			<li>Beautifully design onbroding screen</li>
+			<li>Landing/Welcoming screen</li>
+			<li>Signup page</li>
+			<li>Signin page</li>
+			<li>Forget password</li>
+			<li>Verification page</li>
+			<li>Home Page</li>
+			<li>3 styles category page</li>
+			<li>3 styles products page</li>
+			<li>Product details page</li>
+			<li>My orders page</li>
+			<li>Cart Page</li>
+			<li>Checkout Page</li>
+			<li>Search page</li>
+			<li>Account Page</li>
+			<li>Wishlist page</li>
+			<li>Deal Page</li>
+			<li>Notification page</li>
+		</ul>
+
+		<hr />
+
+		<h3 id="credits"><strong>Sources and Credits</strong> - <a href="#toc">top</a></h3>
+		<hr>
+
+		<p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you
+			if you have
+			any questions relating to this theme. No guarantees, but I'll do my best to assist. If you have a more
+			general question
+			relating to the themes on Codecanyou, you might consider visiting the forums and asking your question in the
+			"Item Discussion"
+			section.
+		</p>
+
+		<p class="append-bottom alt large"><strong>Themes Buckets</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+
+</html>
