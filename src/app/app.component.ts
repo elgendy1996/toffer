@@ -1,11 +1,5 @@
 
-/**
- * Main App Components
- * @author    ThemesBuckets <themebucketbd@gmail.com>
- * @copyright Copyright (c) 2020
- * @license   ThemesBuckets
- * 
- */
+
 
 import { Component } from '@angular/core';
 

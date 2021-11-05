@@ -1,9 +1,4 @@
-/**
- * Product Screen
- * @author    ThemesBuckets <themebucketbd@gmail.com>
- * @copyright Copyright (c) 2020
- * @license   ThemesBuckets
- */
+
 
 
 import { Component, OnInit } from '@angular/core';
@@ -59,7 +54,7 @@ export class ProductsComponent implements OnInit {
   // One column view function
   showOneColumn() {
     this.oneColumn = true;
-    this.grid = false
+    this.grid = false;
     this.list = false;
   }
 

@@ -1,9 +1,4 @@
-/**
- * Product Details Screen
- * @author    ThemesBuckets <themebucketbd@gmail.com>
- * @copyright Copyright (c) 2020
- * @license   ThemesBuckets
- */
+
 
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../models/product.model';

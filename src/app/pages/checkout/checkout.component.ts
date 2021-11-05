@@ -1,9 +1,4 @@
-/**
- * Checkout Screen
- * @author    ThemesBuckets <themebucketbd@gmail.com>
- * @copyright Copyright (c) 2020
- * @license   ThemesBuckets
- */
+
 
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
@@ -52,7 +47,7 @@ export class CheckoutComponent implements OnInit {
       this.steps[0].isSelected = false;
       this.steps[1].isSelected = true;
     }
-    // If current section is Billing then next section confirm will be visible 
+    // If current section is Billing then next section confirm will be visible
     else if (this.steps[1].isSelected) {
       this.steps[0].isSelected = false;
       this.steps[1].isSelected = false;
