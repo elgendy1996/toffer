@@ -2,6 +2,8 @@ export class Product {
     id: string;
     description: string;
     price: number;
-    images: string;
+    image: string;
     stock: number;
+    quantity: number;
+    isWishlist: boolean;
 }

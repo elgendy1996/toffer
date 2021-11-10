@@ -1,79 +1,74 @@
-
-
-import { Component, OnInit, Input } from '@angular/core';
-import { Product } from '../../models/product.model';
-import { StorageService } from '../../services/storage.service';
-import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import {Component, OnInit, Input} from '@angular/core';
+import {Product} from '../../models/product.model';
+import {StorageService} from '../../services/storage.service';
+import {Router} from '@angular/router';
+import {ModalController} from '@ionic/angular';
 
 @Component({
-  selector: 'app-product-details',
-  templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.scss'],
+    selector: 'app-product-details',
+    templateUrl: './product-details.component.html',
+    styleUrls: ['./product-details.component.scss'],
 })
 export class ProductDetailsComponent implements OnInit {
 
-  @Input() id: number;
-  @Input() name: String;
-  @Input() description: String;
-  @Input() price: number;
-  @Input() discountPrice: number;
-  @Input() images: Array<String>;
-  @Input() size: Array<String>;
-  @Input() color: Array<String>;
-  @Input() isWishlist: boolean;
+    @Input() id: string;
+    @Input() description: string;
+    @Input() price: number;
+    @Input() stock: number;
+    @Input() images: string;
+    @Input() isWishlist: boolean;
+    @Input() quantity: number;
 
-  products: Product;
 
-  // Slider Options
-  slideOpts = {
-    initialSlide: 0,
-    loop: true,
-    autoplay: true,
-    speed: 400,
-    pagination: {
-      el: '.swiper-pagination',
-      dynamicBullets: true,
-    },
-  };
+    products: Product;
 
-  constructor(public router: Router,
-    private storageService: StorageService,
-    private modalController: ModalController
-  ) { }
+    // Slider Options
+    slideOpts = {
+        initialSlide: 0,
+        loop: true,
+        autoplay: true,
+        speed: 400,
+        pagination: {
+            el: '.swiper-pagination',
+            dynamicBullets: true,
+        },
+    };
 
-  ngOnInit() {
-  }
-
-  // Add to Cart Function
-  addToCart() {
-    this.products = {
-      id: this.id,
-      name: this.name,
-      description: this.description,
-      price: this.price,
-      discountPrice: this.discountPrice,
-      images: this.images,
-      size: this.size,
-      color: this.color,
-      quantity: 1,
-      isWishlist: this.isWishlist
+    constructor(public router: Router,
+                private storageService: StorageService,
+                private modalController: ModalController
+    ) {
     }
 
-    // Save cart product in storage
-    this.storageService.setObject(this.products, 'my-cart');
-  }
+    ngOnInit() {
+    }
 
-  // Go to cart page
-  async gotoCartPage() {
-    this.dismiss();
-    this.router.navigate(['/cart']);
-  }
+    // Add to Cart Function
+    addToCart() {
+        this.products = {
+            id: this.id,
+            description: this.description,
+            price: this.price,
+            image: this.images,
+            stock: this.stock,
+            quantity: this.quantity,
+            isWishlist: this.isWishlist
+        };
 
-  // Back to previous page function
-  dismiss() {
-    this.modalController.dismiss({
-      'dismissed': true
-    })
-  }
+        // Save cart product in storage
+        this.storageService.setObject(this.products, 'my-cart');
+    }
+
+    // Go to cart page
+    async gotoCartPage() {
+        this.dismiss();
+        this.router.navigate(['/cart']);
+    }
+
+    // Back to previous page function
+    dismiss() {
+        this.modalController.dismiss({
+            dismissed: true
+        });
+    }
 }

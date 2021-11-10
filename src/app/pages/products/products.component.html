@@ -53,7 +53,7 @@
                 <ion-card class="ion-no-margin">
 
                     <!-- Product Image -->
-                    <div class="card-img" [style.background-image]="'url(' + item.images[0] + ')'"
+                    <div class="card-img" [style.background-image]="'url(' + item.image[0] + ')'"
                         (click)="goToProductDetails(item)"></div>
 
                     <!-- Wish Button or Product Like/Dislike Button Option -->
@@ -67,11 +67,11 @@
                     <!-- Product Contents -->
                     <ion-card-content (click)="goToProductDetails(item)">
                         <ion-row>
-                            <ion-text color="color1">${{item.discountPrice}} &nbsp;</ion-text>
+                            <ion-text color="color1">${{item.price}} &nbsp;</ion-text>
                             <span class="previous-price"> ${{item.price}}</span>
                         </ion-row>
                         <ion-row>
-                            <h4 class="product-name">{{item.name | slice:0:20}}</h4>
+                            <h4 class="product-name">{{item.description | slice:0:20}}</h4>
                         </ion-row>
                     </ion-card-content>
                 </ion-card>
@@ -86,7 +86,7 @@
                 <ion-card class="ion-no-margin">
 
                     <!-- Product Image -->
-                    <div class="card-img" [style.background-image]="'url(' + item.images[0] + ')'"
+                    <div class="card-img" [style.background-image]="'url(' + item.image[0] + ')'"
                         (click)="goToProductDetails(item)"></div>
 
                     <!-- Wish Button or Product Like/Dislike Button Option -->
@@ -100,11 +100,11 @@
                     <!-- Product Contents -->
                     <ion-card-content (click)="goToProductDetails(item)">
                         <ion-row>
-                            <ion-text color="color1">${{item.discountPrice}} &nbsp;</ion-text>
+                            <ion-text color="color1">${{item.price}} &nbsp;</ion-text>
                             <span class="previous-price"> ${{item.price}}</span>
                         </ion-row>
                         <ion-row>
-                            <h4 class="product-name">{{item.name | slice:0:20}}</h4>
+                            <h4 class="product-name">{{item.description | slice:0:20}}</h4>
                         </ion-row>
                     </ion-card-content>
                 </ion-card>
@@ -120,7 +120,7 @@
 
                     <!-- Product Image -->
                     <ion-thumbnail slot="start">
-                        <img style="vertical-align: middle;" [src]="item.images[0]">
+                        <img style="vertical-align: middle;" [src]="item.image[0]">
                     </ion-thumbnail>
 
                     <!-- Wish Button or Product Like/Dislike Button Option -->
@@ -132,10 +132,10 @@
                     <!-- Product Contents -->
                     <ion-label class="ion-text-wrap">
                         <ion-row>
-                            <h4 class="product-name">{{item.name | slice:0:20}}</h4>
+                            <h4 class="product-name">{{item.description | slice:0:20}}</h4>
                         </ion-row>
                         <ion-row>
-                            <ion-text color="color1">${{item.discountPrice}} &nbsp;</ion-text>
+                            <ion-text color="color1">${{item.price}} &nbsp;</ion-text>
                             <span class="previous-price"> ${{item.price}}</span>
                         </ion-row>
                     </ion-label>

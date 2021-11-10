@@ -1,44 +1,40 @@
-
-
-import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-import { Product } from '../../models/product.model';
-import { ProductsService } from '../../services/products.service';
-import { ProductDetailsComponent } from '../product-details/product-details.component';
-import { Router } from '@angular/router';
-
+import { Component, OnInit } from "@angular/core";
+import { ModalController } from "@ionic/angular";
+import { Product } from "../../models/product.model";
+import { ProductsService } from "../../services/products.service";
+import { ProductDetailsComponent } from "../product-details/product-details.component";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss'],
+  selector: "app-search",
+  templateUrl: "./search.component.html",
+  styleUrls: ["./search.component.scss"],
 })
 export class SearchComponent implements OnInit {
-
   // List of Products
   products: Product[];
 
   // Check is product available or not
   isProductAvailable = false;
 
-  constructor(public modalController: ModalController,
-              private productsService: ProductsService,
-              private router: Router) { }
+  constructor(
+    public modalController: ModalController,
+    private productsService: ProductsService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    this.productsService.getProductList().subscribe(data => {
-      console.log(data);
-    });
+    this.productsService.listOfProducts;
   }
 
   // Get All Products
-  // getProductList() {
-  //   this.products = this.productsService.getProductList();
+  //  listOfProducts {
+  //   this.products = this.productsService. listOfProducts;
   // }
 
   // Get Search Result
   // getProducts(ev: any) {
-  //   this.getProductList();
+  //   this. listOfProducts;
   //
   //   // set val to the value of the searchbar
   //   const val = ev.target.value;
@@ -56,18 +52,18 @@ export class SearchComponent implements OnInit {
   async goToProductDetails(product) {
     const modal = await this.modalController.create({
       component: ProductDetailsComponent,
-      componentProps: product
+      componentProps: product,
     });
     return await modal.present();
   }
 
   // Go to cart page function
   async gotoCartPage() {
-    this.router.navigate(['/cart']);
+    this.router.navigate(["/cart"]);
   }
 
   // Back to previous page function
   dismiss() {
-    this.router.navigate(['/tabs/tab1']);
+    this.router.navigate(["/tabs/tab1"]);
   }
 }
