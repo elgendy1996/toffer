@@ -19,36 +19,38 @@ export class SearchComponent implements OnInit {
   products: Product[];
 
   // Check is product available or not
-  isProductAvailable: boolean = false;
+  isProductAvailable = false;
 
   constructor(public modalController: ModalController,
-    private productsService: ProductsService,
-    private router: Router) { }
+              private productsService: ProductsService,
+              private router: Router) { }
 
   ngOnInit() {
-    this.getProductList();
+    this.productsService.getProductList().subscribe(data => {
+      console.log(data);
+    });
   }
 
   // Get All Products
-  getProductList() {
-    this.products = this.productsService.productList();
-  }
+  // getProductList() {
+  //   this.products = this.productsService.getProductList();
+  // }
 
   // Get Search Result
-  getProducts(ev: any) {
-    this.getProductList();
-
-    // set val to the value of the searchbar
-    const val = ev.target.value;
-
-    // if the value is an empty string don't filter the product
-    if (val && val.trim() != '') {
-      this.isProductAvailable = true;
-      this.products = this.products.filter((item) => {
-        return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      })
-    }
-  }
+  // getProducts(ev: any) {
+  //   this.getProductList();
+  //
+  //   // set val to the value of the searchbar
+  //   const val = ev.target.value;
+  //
+  //   // if the value is an empty string don't filter the product
+  //   if (val && val.trim() !== '') {
+  //     this.isProductAvailable = true;
+  //     this.products = this.products.filter((item) => {
+  //       return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+  //     });
+  //   }
+  // }
 
   // Go to product details page function
   async goToProductDetails(product) {

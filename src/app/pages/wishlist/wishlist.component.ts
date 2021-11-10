@@ -21,13 +21,15 @@ export class WishlistComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.getProductList();
+    this.productsService.getProductList().subscribe(data => {
+      console.log(data);
+    });
   }
 
   // Get Products
-  getProductList() {
-    this.products = this.productsService.productList();
-  }
+  // getProductList() {
+  //   this.products = this.productsService.getProductList();
+  // }
 
   // Go to product details page
   async goToProductDetails(product) {

@@ -1,12 +1,7 @@
 export class Product {
-    id: number;
-    name: String;
-    description: String;
+    id: string;
+    description: string;
     price: number;
-    discountPrice: number;
-    images: Array<String>;
-    size: Array<String>;
-    color: Array<String>;
-    quantity: number;
-    isWishlist: boolean;
+    images: string;
+    stock: number;
 }
