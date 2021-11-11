@@ -28,10 +28,6 @@ export class FeaturedProductsComponent implements OnInit {
     this.productsService.listOfProducts;
   }
 
-  //  listOfProducts {
-  //   this.products = this.productsService. listOfProducts;
-  // }
-
   async goToProductDetails(product) {
     const modal = await this.modalController.create({
       component: ProductDetailsComponent,
