@@ -3,8 +3,6 @@ import { Product } from "../../models/product.model";
 import { ProductsService } from "../../services/products.service";
 import { ModalController } from "@ionic/angular";
 import { FilterComponent } from "../filter/filter.component";
-import { HttpClient } from "@angular/common/http";
-import { Observable, throwError } from "rxjs";
 import { ProductDetailsComponent } from "../product-details/product-details.component";
 import { Router } from "@angular/router";
 
@@ -39,7 +37,13 @@ export class ProductsComponent implements OnInit {
   async goToProductDetails(product) {
     const modal = await this.modalController.create({
       component: ProductDetailsComponent,
-      componentProps: product,
+      componentProps: {
+        id: product.ID,
+        price: product.CostPriceStandard,
+        description: product.Description,
+        stock: product.Stock,
+        image: product.PictureUrl,
+      },
     });
     return await modal.present();
   }

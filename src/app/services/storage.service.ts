@@ -1,35 +1,32 @@
-
-
-import { Injectable } from '@angular/core';
-import { Plugins } from '@capacitor/core';
-import { Product } from '../models/product.model';
+import { Injectable } from "@angular/core";
+import { Plugins } from "@capacitor/core";
+import { Product } from "../models/product.model";
 const { Storage } = Plugins;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class StorageService {
-
-  constructor() { }
+  constructor() {}
 
   async setObject(product: Product, ITEMS_KEY) {
     await Storage.get({ key: ITEMS_KEY }).then(async (products: any) => {
-
       if (products.value) {
         let newProducts: any = JSON.parse(products.value);
         newProducts.push(product);
 
         await Storage.set({
           key: ITEMS_KEY,
-          value: JSON.stringify(newProducts)
+          value: JSON.stringify(newProducts),
         });
+        console.log(products, product);
       } else {
         await Storage.set({
           key: ITEMS_KEY,
-          value: JSON.stringify([product])
+          value: JSON.stringify(product),
         });
       }
-    })
+    });
   }
 
   async getObject(ITEMS_KEY) {
@@ -57,7 +54,7 @@ export class StorageService {
 
     await Storage.set({
       key: ITEMS_KEY,
-      value: JSON.stringify(toKeep)
+      value: JSON.stringify(toKeep),
     });
 
     return true;

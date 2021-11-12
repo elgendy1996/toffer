@@ -36,6 +36,13 @@
   font-size: 16px;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
 ion-footer {
 
   ion-toolbar {
@@ -55,4 +62,6 @@ ion-footer {
   #backButton {
     color: #a1a1a1;
   }
+
+
 }

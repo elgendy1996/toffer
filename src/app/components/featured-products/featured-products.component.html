@@ -1,8 +1,16 @@
 <div id="featured-products">
   <ion-item-divider color="white" class="ion-padding-top">
     <ion-label color="dark" class="text-bold"> Products</ion-label>
-    <ion-button class="ion-margin-end" size="small" slot="end" color="color1" fill="clear" routerLink="/tabs/products"
-      routerDirection="root">Sell All</ion-button>
+    <ion-button
+      class="ion-margin-end"
+      size="small"
+      slot="end"
+      color="color1"
+      fill="clear"
+      routerLink="/tabs/products"
+      routerDirection="root"
+      >Sell All</ion-button
+    >
   </ion-item-divider>
 
   <ion-slides [options]="slideOpts" class="ion-padding-top">
@@ -11,22 +19,37 @@
         <ion-row>
           <ion-col>
             <ion-card class="ion-no-margin">
-              <div class="card-img" [style.background-image]="'url(' + item.PictureUrl[0] + ')'"
-                (click)="goToProductDetails(item)"></div>
+              <div
+                class="card-img"
+                [style.background-image]="'url(' + item.PictureUrl[0] + ')'"
+                (click)="goToProductDetails(item)"
+              ></div>
 
               <ion-fab vertical="top" horizontal="end">
                 <ion-fab-button>
-                  <ion-icon color="color1" name="heart-outline" *ngIf="!item.isWishlist"></ion-icon>
-                  <ion-icon color="color1" name="heart" *ngIf="item.isWishlist"></ion-icon>
+                  <ion-icon
+                    color="color1"
+                    name="heart-outline"
+                    *ngIf="!item.isWishlist"
+                  ></ion-icon>
+                  <ion-icon
+                    color="color1"
+                    name="heart"
+                    *ngIf="item.isWishlist"
+                  ></ion-icon>
                 </ion-fab-button>
               </ion-fab>
 
               <ion-card-content (click)="goToProductDetails(item)">
                 <ion-row>
-                  <ion-text color="color1">€{{item.CostPriceStandard}}</ion-text>
+                  <ion-text color="color1"
+                    >€{{ item.CostPriceStandard }}</ion-text
+                  >
                 </ion-row>
                 <ion-row class="product-name">
-                  <h4>{{item.Description | slice:0:20}}</h4>
+                  <ion-label>
+                    <h4>{{ item.Description | slice: 0:20 }}</h4>
+                  </ion-label>
                 </ion-row>
               </ion-card-content>
             </ion-card>
