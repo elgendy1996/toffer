@@ -39,9 +39,7 @@
       </div>
     </ion-row>
   </ion-grid>
-  <div class="mO" *ngFor="let item of cartProducts | keyvalue">
-    Key: <b>{{ item.key }}</b> and Value: <b>{{ item.value }}</b>
-  </div>
+
   <!-- Cart Contents -->
   <div *ngIf="cartProducts.length != 0">
     <!-- Cart Product List -->
@@ -85,7 +83,6 @@
                 [(ngModel)]="item.quantity"
                 (keyup)="getInputValue(item.quantity)"
                 style="width: 30px"
-               
                 maxlength="5"
                 min="1"
                 max="99999"
@@ -113,21 +110,18 @@
         </ion-item>
       </ion-list>
     </ion-card>
-
-    <!-- summary Of Products Price -->
-    <ion-list lines="none">
-      <ion-item-divider></ion-item-divider>
-
-      <ion-item>
-        <ion-label>Total</ion-label>
-        <ion-note slot="end" color="toffer">€{{ total }}</ion-note>
-      </ion-item>
-    </ion-list>
   </div>
 </ion-content>
 
 <!-- Footer -->
 <ion-footer class="ion-no-border">
+  <!-- summary Of Products Price -->
+  <ion-list lines="none">
+    <ion-item>
+      <ion-label>Total</ion-label>
+      <ion-note slot="end" color="toffer">€{{ total }}</ion-note>
+    </ion-item>
+  </ion-list>
   <ion-toolbar class="ion-padding" transparent>
     <!-- Checkout Button Option -->
     <ion-button
