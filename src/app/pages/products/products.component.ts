@@ -22,14 +22,12 @@ export class ProductsComponent implements OnInit {
   constructor(
     private productsService: ProductsService,
     public router: Router,
-
     public modalController: ModalController
   ) {
     this.products = productsService.listOfProducts;
   }
 
   ngOnInit() {
-    console.log("this.products ", this.productsService);
     this.productsService.listOfProducts;
   }
 
@@ -76,17 +74,4 @@ export class ProductsComponent implements OnInit {
     this.grid = false;
     this.oneColumn = false;
   }
-
-  // async addToCart() {
-
-  //   product = {
-  //     id: this.,
-  //     description: this.description,
-  //     price: this.price,
-  //     image: this.image,
-  //     stock: this.stock,
-  //     quantity: this.quantity,
-  //     isWishlist: this.isWishlist,
-  //   };
-  // }
 }
