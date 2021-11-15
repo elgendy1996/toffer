@@ -16,7 +16,7 @@ export class ProductDetailsComponent implements OnInit {
   @Input() stock: number;
   @Input() image: string;
   @Input() isWishlist: boolean;
-  @Input() quantity: number;
+  @Input() quantity: number  = 1;
   productCount: number = 1;
 
   products: Product;

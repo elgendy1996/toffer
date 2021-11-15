@@ -11,7 +11,7 @@ import { Router } from "@angular/router";
 })
 export class CartComponent implements OnInit {
   cartProducts: Product[] = [];
-  total = 0;
+  total: number = 0;
   inputQuantity = 0;
 
   constructor(
@@ -33,8 +33,7 @@ export class CartComponent implements OnInit {
       console.log(this.cartProducts);
 
       for (let i = 0; i < this.cartProducts.length; i++) {
-        this.total +=
-          this.cartProducts[i].price * this.cartProducts[i].quantity;
+        this.total += this.cartProducts[i].price;
         console.log("total " + this.total);
       }
     });
