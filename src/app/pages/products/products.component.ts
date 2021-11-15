@@ -1,23 +1,23 @@
-import { Component, OnInit } from "@angular/core";
-import { Product } from "../../models/product.model";
-import { ProductsService } from "../../services/products.service";
-import { ModalController } from "@ionic/angular";
-import { FilterComponent } from "../filter/filter.component";
-import { ProductDetailsComponent } from "../product-details/product-details.component";
-import { Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { Product } from '../../models/product.model';
+import { ProductsService } from '../../services/products.service';
+import { ModalController } from '@ionic/angular';
+import { FilterComponent } from '../filter/filter.component';
+import { ProductDetailsComponent } from '../product-details/product-details.component';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-products",
-  templateUrl: "./products.component.html",
-  styleUrls: ["./products.component.scss"],
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
   // List of product
   products: Product[];
   product: Product;
-  grid: boolean = true;
-  oneColumn: boolean = false;
-  list: boolean = false;
+  grid = true;
+  oneColumn = false;
+  list = false;
 
   constructor(
     private productsService: ProductsService,
