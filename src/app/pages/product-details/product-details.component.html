@@ -27,10 +27,10 @@
 
 <!-- Main Contents of Page -->
 <ion-content id="product-details" fullscreen>
+
   <!-- Slider of Product Images -->
   <ion-slides pager="true" [options]="slideOpts">
-    <ion-slide *ngFor="let item of image">
-      <img [src]="item" />
+      <img [src]="image" />
 
       <!-- Wish Button or Product Like/Dislike Button Option -->
       <ion-fab vertical="top" horizontal="end">
@@ -43,7 +43,6 @@
           <ion-icon color="color1" name="heart" *ngIf="isWishlist"></ion-icon>
         </ion-fab-button>
       </ion-fab>
-    </ion-slide>
   </ion-slides>
 
   <!-- Product Price -->

@@ -34,7 +34,6 @@ export class CartComponent implements OnInit {
 
       for(let i = 0; i < this.cartProducts.length; i++) {
         this.total += this.cartProducts[i].price;
-        console.log('total ' + this.total);
       }
     });
   }

@@ -62,7 +62,7 @@
           <!-- Product Image -->
           <div
             class="card-img"
-            [style.background-image]="'url(' + item.PictureUrl[0] + ')'"
+            [style.background-image]="item.image"
             (click)="goToProductDetails(item)"
           ></div>
 
@@ -148,7 +148,7 @@
         <ion-item class="ion-no-padding">
           <!-- Product Image -->
           <ion-thumbnail slot="start">
-            <img style="vertical-align: middle" [src]="item.PictureUrl[0]" />
+            <img style="vertical-align: middle" [src]="item.base64[0]" />
           </ion-thumbnail>
 
           <!-- Wish Button or Product Like/Dislike Button Option -->

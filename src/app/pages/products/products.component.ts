@@ -40,9 +40,11 @@ export class ProductsComponent implements OnInit {
         price: product.CostPriceStandard,
         description: product.Description,
         stock: product.Stock,
-        image: product.PictureUrl,
+        image: product.base64
       },
     });
+    console.log(' product image ' +  product.base64);
+
     return await modal.present();
   }
 
