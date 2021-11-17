@@ -5,14 +5,14 @@ import { Product } from "../../models/product.model";
 import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss'],
+  selector: "app-cart",
+  templateUrl: "./cart.component.html",
+  styleUrls: ["./cart.component.scss"],
 })
 export class CartComponent implements OnInit {
   cartProducts: Product[] = [];
   total = 0;
-  inputQuantity = 0;
+  inputQuantity = 1;
 
   constructor(
     public modalController: ModalController,
@@ -28,11 +28,11 @@ export class CartComponent implements OnInit {
 
   // Get Cart Items From Storage
   getCartItems() {
-    this.storageService.getObject('my-cart').then((products) => {
+    this.storageService.getObject("my-cart").then((products) => {
       this.cartProducts = products;
       console.log(this.cartProducts);
 
-      for(let i = 0; i < this.cartProducts.length; i++) {
+      for (let i = 0; i < this.cartProducts.length; i++) {
         this.total += this.cartProducts[i].price;
       }
     });
@@ -53,34 +53,36 @@ export class CartComponent implements OnInit {
     console.log(product);
     if (product.quantity) {
       product.quantity = product.quantity + 1;
-      this.inputQuantity++;
     } else {
       product.quantity = 1;
       product.quantity = product.quantity + 1;
-      this.inputQuantity++;
     }
     this.total = this.total + product.price;
+    this.inputQuantity++;
   }
 
   // Remove Product From Cart
   async removeProduct(product, index) {
     this.cartProducts.splice(index, 1);
-    await this.storageService.removeStorageValue(product.id, 'my-cart');
+    await this.storageService.removeStorageValue(product.id, "my-cart");
     await this.getCartItems();
     this.total = this.total - product.price * product.quantity;
+    this.inputQuantity--;
   }
 
   // Go to checkout page
   async goToCheckout() {
-    await this.router.navigate(['/checkout']);
+    await this.router.navigate(["/checkout"]);
   }
 
   // Back to previous page options
   dismiss() {
-    this.router.navigate(['/tabs/tab1']);
+    this.router.navigate(["/tabs/tab1"]);
   }
-
-  getInputValue(value: number) {
-    this.inputQuantity = value;
+  // getting input value
+  getInputValue(value) {
+    this.inputQuantity = value.quantity;
+    this.total = 1;
+    this.total += this.inputQuantity * value.price;
   }
 }
