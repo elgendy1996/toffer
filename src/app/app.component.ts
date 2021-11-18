@@ -1,19 +1,17 @@
+import { Component, NgModule } from "@angular/core";
 
-
-
-import { Component } from '@angular/core';
-
-import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { MenuController } from '@ionic/angular';
-import { Router } from '@angular/router';
-import { PagesService } from './services/pages.service';
+import { Platform } from "@ionic/angular";
+import { SplashScreen } from "@ionic-native/splash-screen/ngx";
+import { StatusBar } from "@ionic-native/status-bar/ngx";
+import { MenuController } from "@ionic/angular";
+import { Router } from "@angular/router";
+import { PagesService } from "./services/pages.service";
+import { IonicStorageModule } from "@ionic/storage";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss']
+  selector: "app-root",
+  templateUrl: "app.component.html",
+  styleUrls: ["app.component.scss"],
 })
 export class AppComponent {
   public appPages = [];
@@ -39,9 +37,9 @@ export class AppComponent {
     });
   }
 
-  // Signout Button
-  signout() {
-    this.router.navigate(['/onbroading']);
+  // SignOut Button
+  signOut() {
+    this.router.navigate(["/signin"]);
     this.menuController.enable(false); // Make Sidemenu disable
   }
 }
