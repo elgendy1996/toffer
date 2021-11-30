@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import {Component} from '@angular/core';
+import {MenuController} from '@ionic/angular';
 
 @Component({
   selector: 'app-tabs',
@@ -11,5 +11,6 @@ export class TabsPage {
   constructor(private menuController: MenuController) {
     this.menuController.enable(true); // Enable side menu
   }
+
 
 }

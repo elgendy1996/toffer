@@ -1,14 +1,14 @@
-import { Component, OnInit } from "@angular/core";
-import { Product } from "../../models/product.model";
-import { ProductsService } from "../../services/products.service";
-import { ModalController } from "@ionic/angular";
-import { ProductDetailsComponent } from "../product-details/product-details.component";
-import { Router } from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {Product} from 'src/app/models/product.model';
+import {ProductsService} from 'src/app/services/products.service';
+import {ModalController} from '@ionic/angular';
+import {ProductDetailsComponent} from '../product-details/product-details.component';
+import {Router} from '@angular/router';
 
 @Component({
-  selector: "app-wishlist",
-  templateUrl: "./wishlist.component.html",
-  styleUrls: ["./wishlist.component.scss"],
+  selector: 'app-wishlist',
+  templateUrl: './wishlist.component.html',
+  styleUrls: ['./wishlist.component.scss'],
 })
 export class WishlistComponent implements OnInit {
   products: Product[];
@@ -39,6 +39,6 @@ export class WishlistComponent implements OnInit {
 
   // Go to cart page
   async gotoCartPage() {
-    this.router.navigate(["/cart"]);
+    this.router.navigate(['/cart']);
   }
 }

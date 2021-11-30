@@ -1,23 +1,27 @@
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'onbroading', pathMatch: 'full' },
-  { path: 'onbroading', loadChildren: () => import('./pages/onboarding/onboarding.module').then(m => m.OnboardingModule) },
-  { path: 'landing', loadChildren: () => import('./pages/auth/landing-page/landing-page.module').then(m => m.LandingPageModule) },
-  { path: 'signup', loadChildren: () => import('./pages/auth/signup/signup.module').then(m => m.SignupModule) },
-  { path: 'signin', loadChildren: () => import('./pages/auth/signin/signin.module').then(m => m.SigninModule) },
-  { path: 'forget-password', loadChildren: () => import('./pages/auth/forget-password/forget-password.module').then(m => m.ForgetPasswordModule) },
-  { path: 'verification', loadChildren: () => import('./pages/auth/verification/verification.module').then(m => m.VerificationModule) },
-  { path: 'checkout', loadChildren: () => import('./pages/checkout/checkout.module').then(m => m.CheckoutModule) },
-  { path: 'cart', loadChildren: () => import('./pages/cart/cart.module').then(m => m.CartModule) },
-  { path: '', loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule) }
+    {path: '', redirectTo: 'sign-in', pathMatch: 'full'},
+    {path: 'sign-in', loadChildren: () => import('src/app/pages/sign-in/sign-in.module').then(m => m.SignInPageModule)},
+    {path: 'sign-up', loadChildren: () => import('src/app/pages/sign-up/sign-up.module').then(m => m.SignUpPageModule)},
+    {
+        path: 'forget-password',
+        loadChildren: () => import('src/app/pages/forget-password/forget-password.module').then(m => m.ForgetPasswordModule)
+    },
+    {path: '', loadChildren: () => import('src/app/pages/tabs/tabs.module').then(m => m.TabsPageModule)},
+    {path: 'onbroading', loadChildren: () => import('./pages/onboarding/onboarding.module').then(m => m.OnboardingModule)},
+    {path: 'cart', loadChildren: () => import('./pages/cart/cart.module').then(m => m.CartModule)},
+    {path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)}
+
+
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
-  exports: [RouterModule]
+    imports: [
+        RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})
+    ],
+    exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

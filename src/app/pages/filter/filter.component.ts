@@ -1,7 +1,5 @@
-
-
-import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import {Component, OnInit} from '@angular/core';
+import {ModalController} from '@ionic/angular';
 
 @Component({
   selector: 'app-filter',

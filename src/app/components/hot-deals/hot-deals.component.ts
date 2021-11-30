@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { DealsService } from '../../services/deals.service';
+import {Component, OnInit} from '@angular/core';
+import {DealsService} from '../../services/deals.service';
 
 @Component({
   selector: 'app-hot-deals',

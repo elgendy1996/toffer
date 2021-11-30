@@ -1,8 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { ModalController } from "@ionic/angular";
-import { StorageService } from "../../services/storage.service";
-import { Product } from "../../models/product.model";
-import { Router } from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {ModalController} from '@ionic/angular';
+import {StorageService} from 'src/app/services/storage.service';
+import {Product} from 'src/app/models/product.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: "app-cart",

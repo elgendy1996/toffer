@@ -1,8 +1,7 @@
 {
-  "name": "ionic-app-base",
+  "name": "ionic5-firebase-authentication",
   "integrations": {
-    "capacitor": {},
-    "cordova": {}
+    "capacitor": {}
   },
   "type": "angular"
 }
