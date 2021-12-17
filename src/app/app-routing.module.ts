@@ -12,7 +12,8 @@ const routes: Routes = [
     {path: '', loadChildren: () => import('src/app/pages/tabs/tabs.module').then(m => m.TabsPageModule)},
     {path: 'onbroading', loadChildren: () => import('./pages/onboarding/onboarding.module').then(m => m.OnboardingModule)},
     {path: 'cart', loadChildren: () => import('./pages/cart/cart.module').then(m => m.CartModule)},
-    {path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)}
+    {path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)},
+    {path: 'checkout', loadChildren: () => import('./pages/checkout/checkout.module').then(m => m.CheckoutModule)}
 
 
 ];

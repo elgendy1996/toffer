@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {IonicModule} from '@ionic/angular';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import {SearchComponent} from './search.component';
 
@@ -11,6 +12,7 @@ import {SearchComponent} from './search.component';
         CommonModule,
         FormsModule,
         IonicModule,
+        Ng2SearchPipeModule,
         RouterModule.forChild([
             {
                 path: '',

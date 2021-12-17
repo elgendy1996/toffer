@@ -18,7 +18,7 @@
 <!-- Contents -->
 <ion-content id="checkout">
 
-  <!-- Steps of Checkout, steps are - (Billing, Payment, Confirm) -->
+  <!-- Steps of Checkout, steps are - (Billing, Confirm) -->
   <ion-grid class="ion-padding">
     <ion-row class="ion-text-center">
       <ion-col *ngFor="let item of steps" [ngClass]="{selected: item.isSelected}">
@@ -74,58 +74,7 @@
   </div>
   <!-- End billing section -->
 
-  <!-- Payment Section -->
-  <div id="payment" *ngIf="steps[1].isSelected">
 
-    <p class="title">Select Payment</p>
-
-    <!-- Payment Card Options -->
-    <ion-radio-group>
-      <ion-row>
-        <ion-col *ngFor="let item of cards">
-          <ion-item lines="none">
-            <ion-radio color="color1" mode="ios" [value]="item"></ion-radio>
-            <img [src]="item">
-          </ion-item>
-        </ion-col>
-      </ion-row>
-    </ion-radio-group>
-
-    <!-- Card Information Form -->
-    <form class="ion-padding">
-      <!-- Cardholder Name -->
-      <ion-item>
-        <ion-input type="text" placeholder="Cardholder Name" name="name"></ion-input>
-      </ion-item>
-
-      <!-- Card Number -->
-      <ion-item class="ion-padding-top">
-        <ion-input type="text" placeholder="Card Number" name="cardnumber"></ion-input>
-      </ion-item>
-
-      <ion-row>
-        <ion-col>
-          <!-- MM -->
-          <ion-item class="ion-padding-top">
-            <ion-input type="text" placeholder="MM" name="mm"></ion-input>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <!-- YY -->
-          <ion-item class="ion-padding-top">
-            <ion-input type="text" placeholder="YY" name="yy"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-
-      <!-- CVV -->
-      <ion-item class="ion-padding-top">
-        <ion-input type="text" placeholder="CVV" name="cvv"></ion-input>
-      </ion-item>
-    </form>
-  </div>
-
-  <!-- Payment Complete Section -->
   <!-- Confirm Screen -->
   <div id="complete-section" *ngIf="steps[2].isSelected" style="height: 70%">
     <ion-grid class="ion-padding" style="height: 100%">

@@ -13,6 +13,7 @@ export class ProductsService {
             .get('https://test.appcommconnect.com/webhook/toffer-app')
             .subscribe((data: Product[]) => {
                 this.listOfProducts = data;
+                console.log(this.listOfProducts);
             });
     }
 }

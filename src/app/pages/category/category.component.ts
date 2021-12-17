@@ -11,12 +11,12 @@ import {Router} from '@angular/router';
 export class CategoryComponent implements OnInit {
 
   categories: Category[];
-  grid: Boolean = true;
-  oneColumn: Boolean = false;
-  list: Boolean = false;
+  grid = true;
+  oneColumn = false;
+  list = false;
 
   constructor(private router: Router,
-    private categoryService: CategoryService) { }
+              private categoryService: CategoryService) { }
 
   ngOnInit() {
     this.getCategories();
@@ -30,7 +30,7 @@ export class CategoryComponent implements OnInit {
   // One column view function
   showOneColumn() {
     this.oneColumn = true;
-    this.grid = false
+    this.grid = false;
     this.list = false;
   }
 
