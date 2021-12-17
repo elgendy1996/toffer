@@ -15,6 +15,7 @@ import { environment } from '../environments/environment';
 import { FirebaseAuthService } from './firebase-auth.service';
 import {ProductDetailsComponent} from './pages/product-details/product-details.component';
 import {HttpClientModule} from '@angular/common/http';
+import {ProductsService} from './services/products.service';
 
 @NgModule({
     declarations: [AppComponent,
@@ -34,6 +35,7 @@ import {HttpClientModule} from '@angular/common/http';
         StatusBar,
         SplashScreen,
         FirebaseAuthService,
+        ProductsService,
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
     ],
     bootstrap: [AppComponent]

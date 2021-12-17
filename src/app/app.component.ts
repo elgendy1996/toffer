@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
 import {PagesService} from './services/pages.service';
 import {environment} from '../environments/environment';
 import {FirebaseAuthService} from './firebase-auth.service';
+import { ProductsService } from './services/products.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,6 @@ import {FirebaseAuthService} from './firebase-auth.service';
 })
 export class AppComponent {
   public appPages = [];
-  private authService: FirebaseAuthService;
 
   constructor(
       private platform: Platform,
@@ -22,7 +22,8 @@ export class AppComponent {
       private statusBar: StatusBar,
       private menuController: MenuController,
       private router: Router,
-      private pagesService: PagesService
+      private pagesService: PagesService,
+      private productsService: ProductsService
   ) {
     this.initializeApp(environment.firebase);
   }

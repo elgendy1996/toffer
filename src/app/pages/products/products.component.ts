@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {Product} from 'src/app/models/product.model';
-import {ProductsService} from 'src/app/services/products.service';
 import {ModalController} from '@ionic/angular';
 import {FilterComponent} from '../filter/filter.component';
 import {ProductDetailsComponent} from '../product-details/product-details.component';
 import {Router} from '@angular/router';
+import {ProductsService} from '../../services/products.service';
+import {Product} from '../../models/product.model';
 
 @Component({
     selector: 'app-products',
@@ -22,15 +22,17 @@ export class ProductsComponent implements OnInit {
     constructor(
         private productsService: ProductsService,
         public router: Router,
-        public modalController: ModalController
+        public modalController: ModalController,
     ) {
-        this.products = productsService.listOfProducts;
     }
 
-  ngOnInit() {
-      return this.productsService.listOfProducts;
+    ngOnInit() {
+         this.productsService.getData().then((data => {
+            this.products = data;
+        }));
+         console.log('products ' + this.products);
 
-  }
+    }
 
     // Go to product details page
     async goToProductDetails(product) {

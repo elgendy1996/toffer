@@ -6,22 +6,26 @@ import {RouterModule} from '@angular/router';
 
 import {ProductsComponent} from './products.component';
 import {FilterComponent} from '../filter/filter.component';
+import {ProductsService} from '../../services/products.service';
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: ProductsComponent
-      }
-    ])
-  ],
-  declarations: [ProductsComponent, FilterComponent],
-  entryComponents: [FilterComponent],
-  providers: []
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+      RouterModule.forChild([
+            {
+                path: '',
+                component: ProductsComponent
+            }
+        ])
+    ],
+    declarations: [ProductsComponent, FilterComponent],
+    entryComponents: [FilterComponent],
+    providers: [
+        ProductsService
+    ]
 })
-export class ProductsModule { }
+export class ProductsModule {
+}

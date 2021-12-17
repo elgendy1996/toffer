@@ -62,7 +62,7 @@ export class FirebaseAuthService {
 
   public getProfileData() {
     const userModel = new ProfileModel();
-    let providerData : any = this.currentUser.providerData[0];
+    let providerData: any = this.currentUser.providerData[0];
 
     if (this.userProviderAdditionalInfo) {
       providerData = {...providerData, ...this.userProviderAdditionalInfo};
