@@ -13,34 +13,8 @@ import {Router} from '@angular/router';
 export class SearchComponent implements OnInit {
   // List of Products
   products: Product[];
-  term = '';
-  filterData = [
-    {
-      firstName: 'Celestine',
-      lastName: 'Schimmel',
-      address: '7687 Jadon Port'
-    },
-    {
-      firstName: 'Johan',
-      lastName: 'Ziemann PhD',
-      address: '156 Streich Ports'
-    },
-    {
-      firstName: 'Lizzie',
-      lastName: 'Schumm',
-      address: '5203 Jordon Center'
-    },
-    {
-      firstName: 'Gavin',
-      lastName: 'Leannon',
-      address: '91057 Davion Club'
-    },
-    {
-      firstName: 'Lucious',
-      lastName: 'Leuschke',
-      address: '16288 Reichel Harbor'
-    }
-  ];
+  filter: string;
+
   // Check is product available or not
   isProductAvailable = false;
 
@@ -52,35 +26,55 @@ export class SearchComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.productsService.getData().then((data => {
+      this.products = data;
+    }));
   }
 
   // Get All Products
-  //  listOfProducts {
-  //   this.products = this.productsService. listOfProducts;
-  // }
+  async getProductList() {
+    this.products = await this.productsService.getData();
+  }
 
   // Get Search Result
   getProducts(ev: any) {
-    // this.listOfProducts;
-
     // set val to the value of the searchbar
     const val = ev.target.value;
 
     // if the value is an empty string don't filter the product
     if (val && val.trim() !== '') {
       this.isProductAvailable = true;
-      this.products = this.products.filter((item) => {
+      console.log(' items ' + this.products);
+
+      this.products = this.products.filter((item): item is Product => {
         return (item.description.toLowerCase().indexOf(val.toLowerCase()) > -1);
+
       });
     }
   }
-
-  // Go to product details page function
+  transform(languages: string[], searchInput: string): any[] {
+    if (!searchInput) {
+      return [];
+    }
+    searchInput = searchInput.toLowerCase();
+    return languages.filter(
+        x => x.toLowerCase().includes(searchInput)
+    );
+  }
+  // Go to product details page
   async goToProductDetails(product) {
     const modal = await this.modalController.create({
       component: ProductDetailsComponent,
-      componentProps: product,
+      componentProps: {
+        id: product.ID,
+        price: product.CostPriceStandard,
+        description: product.Description,
+        stock: product.Stock,
+        image: product.base64
+      },
     });
+    console.log('products' + this.products);
+
     return await modal.present();
   }
 

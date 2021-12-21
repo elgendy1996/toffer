@@ -14,6 +14,7 @@ import {Product} from '../../models/product.model';
 export class ProductsComponent implements OnInit {
     // List of product
     products: Product[];
+
     product: Product;
     grid = true;
     oneColumn = false;

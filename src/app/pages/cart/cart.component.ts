@@ -104,7 +104,7 @@ export class CartComponent implements OnInit {
     }
 
     sendPostRequest() {
-        const headeroptions = {
+        const headerOptions = {
             'Content-Type': 'application/x-www-form-urlencoded'
         };
 
@@ -120,7 +120,7 @@ export class CartComponent implements OnInit {
                 Quantity: '1'
             }]
         };
-        return this.httpClient.post<any>(this.webhookUrl, productList, {headers: headeroptions}).subscribe(data => {
+        return this.httpClient.post<any>(this.webhookUrl, productList, {headers: headerOptions}).subscribe(data => {
                 console.log('Subscribed Data: ');
                 console.log(data);
             },

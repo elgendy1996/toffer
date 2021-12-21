@@ -24,13 +24,8 @@
 <ion-content id="search" fullscreen class="ion-padding">
 
     <!-- Search bar -->
-    <ion-searchbar placeholder="Search your product" debounce="500" [(ngModel)]="term" animated="true"></ion-searchbar>
-    <ion-list>
-        <ion-item id="listOfItems" *ngFor="let item of products | filter:term">
-            <ion-label>{{item.description}}</ion-label>43
+    <ion-searchbar placeholder="Search your product" debounce="500" [(ngModel)]="filter"></ion-searchbar>
 
-        </ion-item>
-    </ion-list>
     <!-- When search result is empty -->
     <!-- No products Found -->
     <ion-grid class="ion-padding" id="empty" *ngIf="products.length == 0" style="height: 100%">
@@ -46,12 +41,13 @@
     <!-- Search Result Content -->
     <ion-grid>
         <ion-row>
-            <ion-col sizeLg="4" sizeMd="4" sizeXs="6" *ngFor="let item of products">
+            <ion-col sizeLg="4" sizeMd="4" sizeXs="6" *ngFor="let item of products | filter: filter">
                 <ion-card class="ion-no-margin" (click)="goToProductDetails(item)">
 
-                    <!-- Product Image -->
-                    <div class="card-img" [style.background-image]="'url(' + item.image[0] + ')'"></div>
-
+                <!-- Product Image -->
+                    <div>
+                        <img style="vertical-align: middle" [src]="item.base64"/>
+                    </div>
                     <!-- Wish Button or Product Like/Dislike Button Option -->
                     <ion-fab vertical="top" horizontal="end">
                         <ion-fab-button>
@@ -61,13 +57,14 @@
                     </ion-fab>
 
                     <!-- Product Contents -->
-                    <ion-card-content>
+                    <ion-card-content (click)="goToProductDetails(item)">
                         <ion-row>
-                            <ion-text color="color1">${{item.price}} &nbsp;</ion-text>
-                            <span class="previous-price"> ${{item.price}}</span>
+                            <ion-text color="white">€{{ item.CostPriceStandard }}</ion-text>
                         </ion-row>
                         <ion-row>
-                            <h4 class="product-name">{{item.description | slice:0:20}}</h4>
+                            <h4 color="toffer1" class="product-name">
+                                {{ item.Description | slice: 0:20 }}
+                            </h4>
                         </ion-row>
                     </ion-card-content>
                 </ion-card>
