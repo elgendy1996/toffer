@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 import {MenuController, Platform} from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import {SplashScreen} from '@ionic-native/splash-screen/ngx';
+import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {Router} from '@angular/router';
 import {PagesService} from './services/pages.service';
 import {environment} from '../environments/environment';
-import {FirebaseAuthService} from './firebase-auth.service';
-import { ProductsService } from './services/products.service';
+import {ProductsService} from './services/products.service';
 
 @Component({
   selector: 'app-root',

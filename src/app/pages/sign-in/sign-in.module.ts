@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SignInPage } from './sign-in.page';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {IonicModule} from '@ionic/angular';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {SignInPage} from './sign-in.page';
+import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {

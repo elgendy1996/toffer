@@ -3,7 +3,7 @@ import {ModalController} from '@ionic/angular';
 import {StorageService} from 'src/app/services/storage.service';
 import {Product} from 'src/app/models/product.model';
 import {Router} from '@angular/router';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
     selector: 'app-cart',

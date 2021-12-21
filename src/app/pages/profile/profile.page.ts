@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ProfileModel } from './profile.model';
-import { FirebaseAuthService } from '../../firebase-auth.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ProfileModel} from './profile.model';
+import {FirebaseAuthService} from '../../firebase-auth.service';
 
 @Component({
   selector: 'app-profile',

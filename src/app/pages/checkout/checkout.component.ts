@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ModalController} from '@ionic/angular';
 import {Router} from '@angular/router';
 import {StorageService} from '../../services/storage.service';
-import {CartComponent} from '../cart/cart.component';
 
 @Component({
     selector: 'app-checkout',

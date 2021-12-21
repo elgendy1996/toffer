@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { Observable, Subject, from } from 'rxjs';
-import { Platform } from '@ionic/angular';
-import { User, auth } from 'firebase/app';
-import { ProfileModel } from './pages/profile/profile.model';
-import { filter, map, take } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {from, Observable, Subject} from 'rxjs';
+import {Platform} from '@ionic/angular';
+import {auth, User} from 'firebase/app';
+import {ProfileModel} from './pages/profile/profile.model';
+import {filter, map, take} from 'rxjs/operators';
 
 @Injectable()
 export class FirebaseAuthService {
