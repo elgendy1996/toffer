@@ -17,8 +17,7 @@ export class CartComponent implements OnInit {
         public modalController: ModalController,
         public storageService: StorageService,
         private router: Router
-    ) {
-    }
+    ) {}
 
     cartProducts: Array<Product> = [];
     total = 0;
@@ -34,8 +33,8 @@ export class CartComponent implements OnInit {
     }
 
     // Get Cart Items From Storage
-    getCartItems() {
-        this.storageService.getObject('my-cart').then((products) => {
+     getCartItems() {
+       this.storageService.getObject('my-cart').then((products) => {
             this.cartProducts = products;
             console.log(this.cartProducts);
 

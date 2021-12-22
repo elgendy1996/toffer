@@ -41,7 +41,7 @@
     </ion-grid>
 
     <!-- Cart Contents -->
-    <div *ngIf="cartProducts.length != 0">
+    <div *ngIf="cartProducts?.length > 0">
         <!-- Cart Product List -->
         <ion-card *ngFor="let item of cartProducts; let i = index">
             <ion-list lines="none">
