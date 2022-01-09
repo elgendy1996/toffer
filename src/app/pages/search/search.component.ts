@@ -31,11 +31,7 @@ export class SearchComponent implements OnInit {
         }));
     }
 
-    // Get All Products
-    async getProductList() {
-        this.products = await this.productsService.getData();
-    }
-
+    //filter through the list of products using search term from input 
     transform(languages: string[], searchInput: string): any[] {
         if (!searchInput) {
             return [];
@@ -44,6 +40,13 @@ export class SearchComponent implements OnInit {
         return languages.filter(
             x => x.toLowerCase().includes(searchInput)
         );
+    }
+
+
+
+    // Get All Products
+    async getProductList() {
+        this.products = await this.productsService.getData();
     }
 
     // Go to product details page

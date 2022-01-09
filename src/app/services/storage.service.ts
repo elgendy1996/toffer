@@ -11,7 +11,7 @@ export class StorageService {
 
     constructor() {
     }
-
+    // set object in the local storage
     async setObject(product: Product, ITEMS_KEY) {
         await Storage.get({key: ITEMS_KEY}).then(async (products: any) => {
 
@@ -31,12 +31,12 @@ export class StorageService {
             }
         });
     }
-
+    // get object in the local storage
     async getObject(ITEMS_KEY) {
         const ret: any = await Storage.get({key: ITEMS_KEY});
         return JSON.parse(ret.value);
     }
-
+    // remove object in the local storage
     async removeStorageValue(id: number, ITEMS_KEY) {
         const ret: any = await Storage.get({key: ITEMS_KEY});
         const products = JSON.parse(ret.value);

@@ -45,7 +45,7 @@ export class SignInPage {
             ]))
         });
 
-        // Get firebase authentication redirect result invoken when using signInWithRedirect()
+        // Get firebase authentication redirect result invokes when using signInWithRedirect()
         // signInWithRedirect() is only used when client is in web but not desktop
         this.authRedirectResult = this.authService.getRedirectResult()
             .subscribe(result => {

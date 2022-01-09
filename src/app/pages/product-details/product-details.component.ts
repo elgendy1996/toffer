@@ -37,13 +37,9 @@ export class ProductDetailsComponent implements OnInit {
         public router: Router,
         private storageService: StorageService,
         private modalController: ModalController
-    ) {
-    }
+    ) {}
 
-    ngOnInit() {
-        console.log('product image' + this.image);
-
-    }
+    ngOnInit() {}
 
     // Add to Cart Function
     addToCart() {
@@ -58,6 +54,7 @@ export class ProductDetailsComponent implements OnInit {
         };
         // Save cart product in storage
         this.storageService.setObject(this.products, 'my-cart');
+        console.log('list of products ' + this.products);
     }
 
     // Go to cart page

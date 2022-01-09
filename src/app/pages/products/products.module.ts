@@ -7,6 +7,7 @@ import {RouterModule} from '@angular/router';
 import {ProductsComponent} from './products.component';
 import {FilterComponent} from '../filter/filter.component';
 import {ProductsService} from '../../services/products.service';
+import { CrudService } from 'src/app/crud.service';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {ProductsService} from '../../services/products.service';
     declarations: [ProductsComponent, FilterComponent],
     entryComponents: [FilterComponent],
     providers: [
-        ProductsService
+        ProductsService,
+        CrudService
     ]
 })
 export class ProductsModule {

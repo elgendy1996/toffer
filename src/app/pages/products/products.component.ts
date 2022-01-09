@@ -1,10 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {ModalController} from '@ionic/angular';
+import {ModalController, Platform} from '@ionic/angular';
 import {FilterComponent} from '../filter/filter.component';
 import {ProductDetailsComponent} from '../product-details/product-details.component';
 import {Router} from '@angular/router';
 import {ProductsService} from '../../services/products.service';
 import {Product} from '../../models/product.model';
+import {CrudService} from '../../crud.service';
+import {SQLiteObject} from '@ionic-native/sqlite';
+import {SQLite} from '@ionic-native/sqlite/ngx';
 
 @Component({
     selector: 'app-products',
@@ -14,25 +17,28 @@ import {Product} from '../../models/product.model';
 export class ProductsComponent implements OnInit {
     // List of product
     products: Product[];
-
     product: Product;
     grid = true;
     oneColumn = false;
     list = false;
 
+
     constructor(
         private productsService: ProductsService,
         public router: Router,
         public modalController: ModalController,
+        private platform: Platform,
+        private crud: CrudService
     ) {
+        this.crud.databaseConn();
+
     }
 
     ngOnInit() {
-         this.productsService.getData().then((data => {
+        this.productsService.getData().then((data => {
             this.products = data;
+            console.log('all products: ', this.products);
         }));
-         console.log('products ' + this.products);
-
     }
 
     // Go to product details page
@@ -58,6 +64,12 @@ export class ProductsComponent implements OnInit {
             component: FilterComponent,
         });
         return await modal.present();
+    }
+
+    async createProducts() {
+        for (const product of this.products) {
+            this.crud.addProduct(product.id, product.description, product.price, product.image, product.stock, product.quantity, product.isWishlist);
+        }
     }
 
     // One column view function
@@ -86,4 +98,6 @@ export class ProductsComponent implements OnInit {
         console.log('products' + this.products);
 
     }
+
+
 }
