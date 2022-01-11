@@ -8,10 +8,11 @@ export class ProductsService {
 
     constructor(public httpClient: HttpClient) {
     }
+
     // get data from ExactOnline using webhook in n8n
-    public getData(): Promise<any>{
+    public getData(): Promise<any> {
 
         return this.httpClient
-            .get('https://test.appcommconnect.com/webhook/toffer-app').toPromise();
+            .get('https://test.appcommconnect.com/webhook/6/webhook/toffer-app').toPromise();
     }
 }
