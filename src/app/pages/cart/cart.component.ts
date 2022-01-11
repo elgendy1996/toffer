@@ -17,7 +17,8 @@ export class CartComponent implements OnInit {
         public modalController: ModalController,
         public storageService: StorageService,
         private router: Router
-    ) {}
+    ) {
+    }
 
     cartProducts: Array<Product> = [];
     total = 0;
@@ -25,21 +26,23 @@ export class CartComponent implements OnInit {
     webhookUrl = 'https://test.appcommconnect.com/webhook-test/toffer-post';
 
     ngOnInit() {
-
     }
 
     ionViewDidEnter() {
+        this.total = 0;
         this.getCartItems();
+
     }
 
     // Get Cart Items From Storage
-     getCartItems() {
-       this.storageService.getObject('my-cart').then((products) => {
+    getCartItems() {
+        this.storageService.getObject('my-cart').then((products) => {
             this.cartProducts = products;
             console.log(this.cartProducts);
 
             for (let i = 0; i < this.cartProducts.length; i++) {
-                this.total += this.cartProducts[i].price;
+                this.total = this.total + this.cartProducts[i].price;
+                console.log('total now: ' + this.total);
             }
         });
 
@@ -64,10 +67,10 @@ export class CartComponent implements OnInit {
     addQuantity(product, index) {
         console.log(product);
         if (product.quantity) {
-            product.quantity ++;
+            product.quantity++;
         } else {
             product.quantity = 1;
-            product.quantity ++;
+            product.quantity++;
         }
         console.log(' number of products: ' + product.quantity);
 

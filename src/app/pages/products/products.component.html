@@ -8,8 +8,7 @@
 
         <!-- Title of page -->
         <ion-title>Products</ion-title>
-<!--        <ion-button color="success" expand="block" (click)="createProducts()"></ion-button>-->
-
+        <!--        <ion-button color="success" expand="block" (click)="createProducts()"></ion-button>-->
 
 
         <!-- Product Filter Option -->
@@ -77,7 +76,8 @@
                                     *ngIf="!item.isWishlist"
                             ></ion-icon>
                             <ion-icon
-                                    color="color1"
+                                    id="heart"
+                                    color="ff4961"
                                     name="heart"
                                     *ngIf="item.isWishlist"
                             ></ion-icon>
