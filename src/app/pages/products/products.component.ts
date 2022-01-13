@@ -6,8 +6,7 @@ import {Router} from '@angular/router';
 import {ProductsService} from '../../services/products.service';
 import {Product} from '../../models/product.model';
 import {CrudService} from '../../crud.service';
-import {SQLiteObject} from '@ionic-native/sqlite';
-import {SQLite} from '@ionic-native/sqlite/ngx';
+
 
 @Component({
     selector: 'app-products',
@@ -34,11 +33,14 @@ export class ProductsComponent implements OnInit {
 
     }
 
-    ngOnInit() {
+     ngOnInit() {
         this.productsService.getData().then((data => {
             this.products = data;
-            console.log('all products: ', this.products);
         }));
+
+        console.log('all products: ', this.products);
+
+
     }
 
     // Go to product details page
@@ -50,7 +52,8 @@ export class ProductsComponent implements OnInit {
                 price: product.CostPriceStandard,
                 description: product.Description,
                 stock: product.Stock,
-                image: product.base64
+                image: product.base64,
+                category: product.ItemGroupDescription
             },
         });
         console.log('products' + this.products);
@@ -68,7 +71,7 @@ export class ProductsComponent implements OnInit {
 
     async createProducts() {
         for (const product of this.products) {
-            this.crud.addProduct(product.id, product.description, product.price, product.image, product.stock, product.quantity, product.isWishlist);
+            this.crud.addProduct(product.id, product.description, product.price, product.image, product.stock, product.quantity, product.isWishlist, product.category);
         }
     }
 

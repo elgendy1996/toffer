@@ -15,6 +15,7 @@ export interface Dev {
     image: string;
     isWishlist: boolean;
     quantity: number;
+    category: string;
 }
 
 @Injectable({
@@ -61,7 +62,7 @@ export class DatabaseService {
     }
 
     loadProducts() {
-        const query = 'SELECT  product.id, product.description, product.price, product.image, product.stock, product.quantity, product.isWishlist  FROM product';
+        const query = 'SELECT  product.id, product.description, product.price, product.image, product.stock, product.quantity, product.isWishlist , product.category FROM product';
         return this.database.executeSql(query, []).then(data => {
             const products = [];
             if (data.rows.length > 0) {
@@ -79,7 +80,7 @@ export class DatabaseService {
 
     addProduct(name, creator) {
         const data = [name, creator];
-        return this.database.executeSql('INSERT INTO product (  id  ,description, price , image, stock,  quantity , isWishlist  ) VALUES (?, ?,?,?,?,?,?)', data).then(data => {
+        return this.database.executeSql('INSERT INTO product (  id  ,description, price , image, stock,  quantity , isWishlist, category ) VALUES (?, ?,?,?,?,?,?,?)', data).then(data => {
             this.loadProducts();
         });
     }

@@ -49,7 +49,7 @@ export class CrudService {
     }
 
     // adding product to the SQLite DB
-    public addProduct(id, description, price, image, stock, quantity, isWishlist) {
+    public addProduct(id, description, price, image, stock, quantity, isWishlist, category: string) {
         // validation
         this.dbInstance.executeSql(`
             INSERT INTO ${this.dbTable} (id, description, price, image, stock, quantity, isWishlist)

@@ -31,7 +31,7 @@ export class SearchComponent implements OnInit {
         }));
     }
 
-    //filter through the list of products using search term from input 
+    //filter through the list of products using search term from input
     transform(languages: string[], searchInput: string): any[] {
         if (!searchInput) {
             return [];
@@ -58,7 +58,8 @@ export class SearchComponent implements OnInit {
                 price: product.CostPriceStandard,
                 description: product.Description,
                 stock: product.Stock,
-                image: product.base64
+                image: product.base64,
+                category: product.ItemGroupDescription
             },
         });
         console.log('products' + this.products);
@@ -73,6 +74,6 @@ export class SearchComponent implements OnInit {
 
     // Back to previous page function
     dismiss() {
-        this.router.navigate(['/tabs/tab1']);
+        this.router.navigate(['/home']);
     }
 }

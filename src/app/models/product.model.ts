@@ -1,3 +1,4 @@
+
 export class Product {
     id: string;
     description: string;
@@ -6,4 +7,5 @@ export class Product {
     stock: number;
     quantity: number;
     isWishlist: boolean;
+    category: string;
 }

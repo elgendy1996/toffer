@@ -4,6 +4,7 @@ import {StorageService} from 'src/app/services/storage.service';
 import {Product} from 'src/app/models/product.model';
 import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import {any} from 'codelyzer/util/function';
 
 @Component({
     selector: 'app-cart',
@@ -24,6 +25,8 @@ export class CartComponent implements OnInit {
     total = 0;
     inputQuantity = 1;
     webhookUrl = 'https://test.appcommconnect.com/webhook-test/toffer-post';
+    d = new Date();
+    productList = {};
 
     ngOnInit() {
     }
@@ -110,19 +113,23 @@ export class CartComponent implements OnInit {
             'Content-Type': 'application/x-www-form-urlencoded'
         };
 
-        const productList = {
-            Description: 'sales to Strokartonfabriek Beukema BV ',
-            OrderDate: '5/12/2021 01:04:00',
-            OrderedBy: '8fac3f81-0df8-4291-9029-0549ce4b6727',
-            WarehouseID: '1ac3b349-ded6-487d-8cdd-ac0473b96c30',
-            SalesOrderLines: [{
-                Description: 'Polypropyleen Dop 50 x 50',
-                Item: '3bd70829-f2a6-4f9b-8c26-08b56530bb48',
-                UnitPrice: '0.12',
-                Quantity: '1'
-            }]
-        };
-        return this.httpClient.post<any>(this.webhookUrl, productList, {headers: headerOptions}).subscribe(data => {
+        for (let i = 0; i < this.cartProducts.length; i++) {
+
+
+             this.productList = {
+                Description: 'sales to Strokartonfabriek Beukema BV ',
+                OrderDate: this.d.toLocaleDateString() + ' ' +  this.d.toLocaleTimeString(),
+                OrderedBy: '8fac3f81-0df8-4291-9029-0549ce4b6727',
+                WarehouseID: '05e9cf49-153e-486f-8bf6-d729416c988e',
+                SalesOrderLines: [{
+                    Description: this.cartProducts[i].description,
+                    Item: this.cartProducts[i].id,
+                    UnitPrice: this.cartProducts[i].price,
+                    Quantity: this.inputQuantity.toString()
+                }]
+            };
+        }
+        return this.httpClient.post<any>(this.webhookUrl, this.productList, {headers: headerOptions}).subscribe(data => {
                 console.log('Subscribed Data: ');
                 console.log(data);
             },

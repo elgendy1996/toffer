@@ -17,6 +17,8 @@ export class ProductDetailsComponent implements OnInit {
     @Input() image: string;
     @Input() isWishlist: boolean;
     @Input() quantity: number;
+    @Input() category: string;
+
     productCount = 1;
 
     products: Product;
@@ -37,9 +39,11 @@ export class ProductDetailsComponent implements OnInit {
         public router: Router,
         private storageService: StorageService,
         private modalController: ModalController
-    ) {}
+    ) {
+    }
 
-    ngOnInit() {}
+    ngOnInit() {
+    }
 
     // Add to Cart Function
     addToCart() {
@@ -51,6 +55,7 @@ export class ProductDetailsComponent implements OnInit {
             stock: this.stock,
             quantity: this.quantity,
             isWishlist: this.isWishlist,
+            category: this.category,
         };
         // Save cart product in storage
         this.storageService.setObject(this.products, 'my-cart');

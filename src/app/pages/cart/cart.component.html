@@ -124,16 +124,14 @@
     </ion-list>
     <ion-toolbar class="ion-padding" transparent>
         <!-- Checkout Button Option -->
-        <ion-button (click)="sendPostRequest()">Pay</ion-button>
-
 
         <ion-button
                 id="checkout"
                 color="toffer"
                 expand="block"
-                (click)="goToCheckout()"
+                (click)="sendPostRequest()"
                 *ngIf="cartProducts.length != 0"
-        >VERDER NAAR BESTELLEN
+        >Betallen
         </ion-button>
     </ion-toolbar>
 </ion-footer>
