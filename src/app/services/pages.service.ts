@@ -30,29 +30,9 @@ export class PagesService {
         icon: 'cart'
       },
       {
-        title: 'Checkout',
-        url: '/checkout',
-        icon: 'checkbox'
-      },
-      {
         title: 'Search',
         url: '/tabs/search',
         icon: 'search'
-      },
-      {
-        title: 'Deals',
-        url: '/tabs/tab2',
-        icon: 'gift'
-      },
-      {
-        title: 'Wishlist',
-        url: '/tabs/tab3',
-        icon: 'heart'
-      },
-      {
-        title: 'Notification',
-        url: '/tabs/tab4',
-        icon: 'notifications-outline'
       },
       {
         title: 'Orders',
