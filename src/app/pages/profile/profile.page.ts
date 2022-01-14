@@ -20,8 +20,8 @@ export class ProfilePage implements OnInit {
   ngOnInit() {
     this.route.data
     .subscribe((result) => {
-      this.user = result['data'];
-    }, (err) => {})
+      this.user = result.data;
+    }, (err) => {});
   }
 
   signOut() {
