@@ -18,16 +18,7 @@ const routes: Routes = [
                     }
                 ]
             },
-            {
-                path: 'tab2',
-                children: [
-                    {
-                        path: '',
-                        loadChildren: () =>
-                            import('../deal/deal.module').then(m => m.DealModule)
-                    }
-                ]
-            },
+
             {
                 path: 'tab3',
                 children: [
@@ -35,16 +26,6 @@ const routes: Routes = [
                         path: '',
                         loadChildren: () =>
                             import('../cart/cart.module').then(m => m.CartModule)
-                    }
-                ]
-            },
-            {
-                path: 'tab4',
-                children: [
-                    {
-                        path: '',
-                        loadChildren: () =>
-                            import('../notification/notification.module').then(m => m.NotificationModule)
                     }
                 ]
             },

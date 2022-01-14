@@ -11,7 +11,7 @@
         <ion-row>
           <ion-col>
             <ion-card class="ion-no-margin" routerLink="/tabs/tab2" routerDirection="root">
-              <div class="card-img" [style.background-image]="'url(' + item.image + ')'"></div>
+              <div class="card-img" [style.background-image]="item.base64"></div>
 
               <ion-fab vertical="top" horizontal="end">
                 <ion-fab-button>
@@ -20,7 +20,7 @@
               </ion-fab>
 
               <ion-card-header>
-                <ion-card-title class="ion-padding-bottom">{{item.title}}</ion-card-title>
+                <ion-card-title class="ion-padding-bottom">{{item.Description}}</ion-card-title>
                 <ion-card-subtitle class="ion-text-wrap">{{item.subTitle}}</ion-card-subtitle>
                 <ion-button color="color1" size="small">Shop Now</ion-button>
               </ion-card-header>
