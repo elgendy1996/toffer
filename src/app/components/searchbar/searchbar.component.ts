@@ -13,7 +13,7 @@ export class SearchbarComponent implements OnInit {
   ngOnInit() { }
 
   async gotoSearchPage() {
-    this.router.navigate(['/tabs/search']);
+    await this.router.navigate(['/tabs/search']);
   }
 
 }

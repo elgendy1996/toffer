@@ -26,6 +26,7 @@ export class CartComponent implements OnInit {
     webhookUrl = 'https://test.appcommconnect.com/webhook-test/toffer-post';
     d = new Date();
     productList = {};
+    orders = [];
 
     ngOnInit() {
     }
@@ -108,8 +109,11 @@ export class CartComponent implements OnInit {
     }
 
     sendPostRequest() {
-        this.storageService.clear();
-        this.goToCheckout();
+        this.orders.push( this.d.getDate(), this.total, this.inputQuantity, this.total);
+        console.log('my orders' + this.orders);
+
+        this.storageService.setObject(this.orders, 'orders');
+        this.goToCheckout().then(r => this.storageService.clear());
         const headerOptions = {
             'Content-Type': 'application/x-www-form-urlencoded'
         };

@@ -24,7 +24,7 @@
 <ion-content id="search" fullscreen class="ion-padding">
 
     <!-- Search bar -->
-    <ion-searchbar placeholder="Search your product" debounce="500" [(ngModel)]="filter"></ion-searchbar>
+    <ion-searchbar style="color:black;" placeholder="Search your product" debounce="500" [(ngModel)]="filter"></ion-searchbar>
 
     <!-- When search result is empty -->
     <!-- No products Found -->
@@ -32,8 +32,8 @@
         <ion-row class="ion-align-items-center ion-justify-content-center" style="height: 100%; flex-direction: column">
             <div class="ion-text-center ion-padding">
                 <ion-icon name="search" style="zoom:5.0;" color="medium"></ion-icon>
-                <h4>No Search Found</h4>
-                <p>Looks like there are no products available at this moment</p>
+                <h4 style="color:black;">Geen producten gevonden</h4>
+                <p style="color:black;"> Het lijkt erop dat er op dit moment geen producten beschikbaar zijn</p>
             </div>
         </ion-row>
     </ion-grid>

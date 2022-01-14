@@ -31,11 +31,14 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.hideMenuController();
       this.appPages = this.pagesService.getPages();
-
     });
   }
-
+  // hide side menuController
+  hideMenuController() {
+    this.menuController.enable(false);
+  }
   signOut() {
       this.authService.signOut().subscribe(() => {
         // Sign-out successful.
@@ -43,5 +46,6 @@ export class AppComponent {
       }, (error) => {
         console.log('signout error', error);
       });
+      this.hideMenuController();
   }
 }
