@@ -4,7 +4,6 @@ import {StorageService} from 'src/app/services/storage.service';
 import {Product} from 'src/app/models/product.model';
 import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
-import {any} from 'codelyzer/util/function';
 
 @Component({
     selector: 'app-cart',
@@ -109,27 +108,12 @@ export class CartComponent implements OnInit {
     }
 
     sendPostRequest() {
+        this.storageService.clear();
+        this.goToCheckout();
         const headerOptions = {
             'Content-Type': 'application/x-www-form-urlencoded'
         };
-
-        for (let i = 0; i < this.cartProducts.length; i++) {
-
-
-             this.productList = {
-                Description: 'sales to Strokartonfabriek Beukema BV ',
-                OrderDate: this.d.toLocaleDateString() + ' ' +  this.d.toLocaleTimeString(),
-                OrderedBy: '8fac3f81-0df8-4291-9029-0549ce4b6727',
-                WarehouseID: '05e9cf49-153e-486f-8bf6-d729416c988e',
-                SalesOrderLines: [{
-                    Description: this.cartProducts[i].description,
-                    Item: this.cartProducts[i].id,
-                    UnitPrice: this.cartProducts[i].price,
-                    Quantity: this.inputQuantity.toString()
-                }]
-            };
-        }
-        return this.httpClient.post<any>(this.webhookUrl, this.productList, {headers: headerOptions}).subscribe(data => {
+        return this.httpClient.post<any>(this.webhookUrl, this.inputQuantity, {headers: headerOptions}).subscribe(data => {
                 console.log('Subscribed Data: ');
                 console.log(data);
             },
@@ -138,6 +122,7 @@ export class CartComponent implements OnInit {
                 console.log('Message: ' + error.message);
                 console.log('Status: ' + error.status);
             });
+
     }
 
 }

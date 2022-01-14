@@ -19,70 +19,70 @@
 <ion-content id="checkout">
 
   <!-- Steps of Checkout, steps are - (Billing, Confirm) -->
-  <ion-grid class="ion-padding">
-    <ion-row class="ion-text-center">
-      <ion-col *ngFor="let item of steps" [ngClass]="{selected: item.isSelected}">
-        <ion-icon name="radio-button-on" style="zoom:1.5;" [hidden]="!item.isSelected"></ion-icon>
-        <ion-icon name="radio-button-off" style="zoom:1.5;" [hidden]="item.isSelected"></ion-icon>
-        <br />
-        <ion-text>{{item.step}}</ion-text>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+<!--  <ion-grid class="ion-padding">-->
+<!--    <ion-row class="ion-text-center">-->
+<!--      <ion-col *ngFor="let item of steps" [ngClass]="{selected: item.isSelected}">-->
+<!--        <ion-icon name="radio-button-on" style="zoom:1.5;" [hidden]="!item.isSelected"></ion-icon>-->
+<!--        <ion-icon name="radio-button-off" style="zoom:1.5;" [hidden]="item.isSelected"></ion-icon>-->
+<!--        <br />-->
+<!--        <ion-text>{{item.step}}</ion-text>-->
+<!--      </ion-col>-->
+<!--    </ion-row>-->
+<!--  </ion-grid>-->
 
   <!-- Content of Checkout Steps -->
 
-  <!-- Billing Section -->
-  <div id="billing" *ngIf="steps[0].isSelected">
+<!--  &lt;!&ndash; Billing Section &ndash;&gt;-->
+<!--  <div id="billing" *ngIf="steps[0].isSelected">-->
 
-    <form class="ion-padding">
-      <!-- Full Name -->
-      <ion-item>
-        <ion-input type="text" placeholder="Full Name" name="name"></ion-input>
-      </ion-item>
+<!--    <form class="ion-padding">-->
+<!--      &lt;!&ndash; Full Name &ndash;&gt;-->
+<!--      <ion-item>-->
+<!--        <ion-input type="text" placeholder="Full Name" name="name"></ion-input>-->
+<!--      </ion-item>-->
 
-      <!-- Address 1 -->
-      <ion-item class="ion-padding-top">
-        <ion-input type="text" placeholder="Address 1" name="address1"></ion-input>
-      </ion-item>
+<!--      &lt;!&ndash; Address 1 &ndash;&gt;-->
+<!--      <ion-item class="ion-padding-top">-->
+<!--        <ion-input type="text" placeholder="Address 1" name="address1"></ion-input>-->
+<!--      </ion-item>-->
 
-      <!-- Address 2 -->
-      <ion-item class="ion-padding-top">
-        <ion-input type="text" placeholder="Address 2" name="address2"></ion-input>
-      </ion-item>
+<!--      &lt;!&ndash; Address 2 &ndash;&gt;-->
+<!--      <ion-item class="ion-padding-top">-->
+<!--        <ion-input type="text" placeholder="Address 2" name="address2"></ion-input>-->
+<!--      </ion-item>-->
 
-      <ion-row>
-        <ion-col>
-          <!-- City -->
-          <ion-item class="ion-padding-top">
-            <ion-input type="text" placeholder="City" name="city"></ion-input>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <!-- State -->
-          <ion-item class="ion-padding-top">
-            <ion-input type="text" placeholder="state" name="state"></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
+<!--      <ion-row>-->
+<!--        <ion-col>-->
+<!--          &lt;!&ndash; City &ndash;&gt;-->
+<!--          <ion-item class="ion-padding-top">-->
+<!--            <ion-input type="text" placeholder="City" name="city"></ion-input>-->
+<!--          </ion-item>-->
+<!--        </ion-col>-->
+<!--        <ion-col>-->
+<!--          &lt;!&ndash; State &ndash;&gt;-->
+<!--          <ion-item class="ion-padding-top">-->
+<!--            <ion-input type="text" placeholder="state" name="state"></ion-input>-->
+<!--          </ion-item>-->
+<!--        </ion-col>-->
+<!--      </ion-row>-->
 
-      <!-- Zip Code -->
-      <ion-item class="ion-padding-top">
-        <ion-input type="text" placeholder="Zip Code" name="zipcode"></ion-input>
-      </ion-item>
-    </form>
-  </div>
-  <!-- End billing section -->
+<!--      &lt;!&ndash; Zip Code &ndash;&gt;-->
+<!--      <ion-item class="ion-padding-top">-->
+<!--        <ion-input type="text" placeholder="Zip Code" name="zipcode"></ion-input>-->
+<!--      </ion-item>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--  &lt;!&ndash; End billing section &ndash;&gt;-->
 
 
   <!-- Confirm Screen -->
-  <div id="complete-section" *ngIf="steps[2].isSelected" style="height: 70%">
+  <div id="complete-section"  style="height: 70%">
     <ion-grid class="ion-padding" style="height: 100%">
       <ion-row class="ion-align-items-center ion-justify-content-center" style="height: 100%; flex-direction: column">
         <div class="ion-text-center ion-padding">
-          <ion-icon name="checkmark-outline" style="zoom:10.0;" color="medium"></ion-icon>
-          <h2>Order Success</h2>
-          <p>Your order has been placed successfully</p>
+          <ion-icon name="checkmark-outline" style="zoom:10.0;" ></ion-icon>
+          <h2 style="color:black;">> Bestel succes</h2>
+          <p style="color:black;">Jouw bestelling is succesvol geplaatst</p>
         </div>
       </ion-row>
     </ion-grid>
@@ -93,20 +93,19 @@
 <ion-footer class="ion-no-border">
   <ion-toolbar class="ion-padding" transparent>
 
-    <!-- Go To Next Section Button Option  -->
-    <!-- This button only visible Step 1 & 2 -->
-    <ion-button *ngIf="!steps[2].isSelected" color="color1" expand="block" (click)="next()">Next
-    </ion-button>
+<!--    &lt;!&ndash; Go To Next Section Button Option  &ndash;&gt;-->
+<!--    &lt;!&ndash; This button only visible Step 1 & 2 &ndash;&gt;-->
+<!--    <ion-button *ngIf="!steps[2].isSelected" color="color1" expand="block" (click)="next()">Next-->
+<!--    </ion-button>-->
 
     <!-- Go To Order Page Button Option  -->
     <!-- This Option will be visible on Step 3 -->
-    <ion-button *ngIf="steps[2].isSelected" color="color1" fill="outline" expand="block" (click)="gotoOrderPage()">My
-      Orders
+    <ion-button color="color1" fill="outline" expand="block" (click)="gotoOrderPage()">Mijn bestellingen
     </ion-button>
 
     <!-- Go To Products Page Button Option  -->
     <!-- This Option will be visible on Step 3 -->
-    <ion-button *ngIf="steps[2].isSelected" color="color1" expand="block" (click)="gotoProductsPage()">Continue Shopping
+    <ion-button  color="color1" expand="block" (click)="gotoProductsPage()">Doorgaan met winkelen
     </ion-button>
   </ion-toolbar>
 </ion-footer>
