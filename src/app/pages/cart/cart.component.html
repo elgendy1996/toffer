@@ -15,7 +15,7 @@
         </ion-buttons>
 
         <!-- Page title -->
-        <ion-title id="cartTitle">WINKELWAGEN</ion-title>
+        <ion-title style="color:black;" id="cartTitle">WINKELWAGEN</ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -53,12 +53,12 @@
 
                     <ion-label class="ion-text-wrap">
                         <!-- Product Name -->
-                        <ion-text color="white">
+                        <ion-text style="color:black;">
                             <h2>{{ item.description }}</h2>
                         </ion-text>
 
                         <!-- Product Price -->
-                        <ion-text color="white">
+                        <ion-text style="color:black;">
                             <p>€{{ item.price }}</p>
                         </ion-text>
 
@@ -70,8 +70,7 @@
                                         id="addButton"
                                         style="zoom: 2"
                                         name="add-circle-outline"
-                                        color="medium"
-                                ></ion-icon>
+                                        style="color:black;"                                ></ion-icon>
                             </ion-col>
 
                             <!-- Total Quantity -->
@@ -118,8 +117,8 @@
     <!-- summary Of Products Price -->
     <ion-list lines="none">
         <ion-item>
-            <ion-label>Total</ion-label>
-            <ion-note slot="end" color="toffer">€{{ total.toFixed(2) }}</ion-note>
+            <ion-label style="color:black;">Total</ion-label>
+            <ion-note slot="end" style="color:black;">€{{ total.toFixed(2) }}</ion-note>
         </ion-item>
     </ion-list>
     <ion-toolbar class="ion-padding" transparent>

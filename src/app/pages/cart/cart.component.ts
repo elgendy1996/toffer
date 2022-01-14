@@ -109,14 +109,13 @@ export class CartComponent implements OnInit {
     }
 
     sendPostRequest() {
-        this.orders.push( this.d.getDate(), this.total, this.inputQuantity, this.total);
-        console.log('my orders' + this.orders);
+        this.orders.push( this.d.getDate(), this.inputQuantity, this.total);
 
-        this.storageService.setObject(this.orders, 'orders');
         this.goToCheckout().then(r => this.storageService.clear());
         const headerOptions = {
             'Content-Type': 'application/x-www-form-urlencoded'
         };
+        this.storageService.setObject(this.orders, 'orders');
         return this.httpClient.post<any>(this.webhookUrl, this.inputQuantity, {headers: headerOptions}).subscribe(data => {
                 console.log('Subscribed Data: ');
                 console.log(data);

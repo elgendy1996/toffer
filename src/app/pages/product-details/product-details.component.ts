@@ -89,4 +89,10 @@ export class ProductDetailsComponent implements OnInit {
         }
         product.count++;
     }
+
+
+    addProductToFavorite(){
+        this.isWishlist = true;
+    }
+
 }
