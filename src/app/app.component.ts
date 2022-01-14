@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
 import {PagesService} from './services/pages.service';
 import {environment} from '../environments/environment';
 import {ProductsService} from './services/products.service';
+import {FirebaseAuthService} from './firebase-auth.service';
 
 @Component({
   selector: 'app-root',
@@ -22,8 +23,7 @@ export class AppComponent {
       private menuController: MenuController,
       private router: Router,
       private pagesService: PagesService,
-      private productsService: ProductsService
-  ) {
+      private authService: FirebaseAuthService  ) {
     this.initializeApp(environment.firebase);
   }
 
@@ -37,7 +37,11 @@ export class AppComponent {
   }
 
   signOut() {
-    // Sign-out successful.
-    this.router.navigate(['sign-in']);
+      this.authService.signOut().subscribe(() => {
+        // Sign-out successful.
+        this.router.navigate(['sign-in']);
+      }, (error) => {
+        console.log('signout error', error);
+      });
   }
 }
