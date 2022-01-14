@@ -1,61 +1,39 @@
 import {Component, OnInit} from '@angular/core';
+import {StorageService} from 'src/app/services/storage.service';
 
 @Component({
-  selector: 'app-orders',
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.scss'],
+    selector: 'app-orders',
+    templateUrl: './orders.component.html',
+    styleUrls: ['./orders.component.scss'],
 })
 export class OrdersComponent implements OnInit {
 
-  // Slider Options
-  slideOpts = {
-    initialSlide: 0,
-    autoplay: true,
-  };
+    d = new Date();
 
-  // Order Options
-  options: any = [{
-    title: 'Delivered',
-    isSelected: true
-  }, {
-    title: 'Processing',
-    isSelected: false
-  }, {
-    title: 'Cancelled',
-    isSelected: false
-  }];
+    // Slider Options
+    slideOpts = {
+        initialSlide: 0,
+        autoplay: true,
+    };
 
-  // Orders Sample Data
-  orders: any = [{
-    orderId: '#NPOK8T',
-    date: '15/11/2020',
-    trackingNumber: 'AQWNQWEIC',
-    quantity: 2,
-    totalPrice: 100
-  }, {
-    orderId: '#NPORK8T',
-    date: '20/11/2020',
-    trackingNumber: 'WNQWEIC',
-    quantity: 2,
-    totalPrice: 500
-  }, {
-    orderId: '#NPOKYY8T',
-    date: '05/11/2020',
-    trackingNumber: 'MWNQWEIC',
-    quantity: 4,
-    totalPrice: 300
-  }];
+    // Orders Sample Data
+    orders: any = [{
+        orderId: 0,
+        date: '',
+        quantity: 0,
+        totalPrice: 0
+    }];
 
-  constructor() { }
+    constructor(public storageService: StorageService,
+    ) {}
 
-  ngOnInit() { }
+    ngOnInit() {
+        this.storageService.getObject('orders').then((orders) => {
 
-  // Change Order Option Function
-  changeOption(option, index) {
-    for (let i = 0; i < this.options.length; i++) {
-      this.options[i].isSelected = false;
+            console.log('orders ' + orders);
+        });
+
+
+
     }
-
-    this.options[index].isSelected = true;
-  }
 }
