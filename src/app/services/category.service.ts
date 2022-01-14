@@ -14,13 +14,8 @@ export class CategoryService {
     this.categories = [
       {
         id: 1,
-        name: 'Women',
-        image: 'assets/images/category/women-fashion.jpg'
-      },
-      {
-        id: 2,
-        name: 'Men',
-        image: 'assets/images/category/men-fashion.jpg'
+        name: 'Verpakking',
+        image: 'assets/images/category/verpakking.jpg'
       }
     ];
 
