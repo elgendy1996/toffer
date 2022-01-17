@@ -28,7 +28,7 @@ export class CartComponent implements OnInit {
     cartProducts: Array<Product> = [];
     total = 0;
     inputQuantity = 1;
-    webhookUrl = 'https://test.appcommconnect.com/webhook-test/toffer-post';
+    webhookUrl = 'https://test.appcommconnect.com/webhook/toffer-post';
     productList = {};
     orders = [];
 
@@ -116,7 +116,7 @@ export class CartComponent implements OnInit {
             this.total = value.price;
         } else {
             this.total = value.price;
-            this.total += this.inputQuantity * value.price;
+            this.total = this.inputQuantity * value.price;
         }
 
     }

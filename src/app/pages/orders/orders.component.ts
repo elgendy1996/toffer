@@ -13,6 +13,7 @@ export class OrdersComponent implements OnInit {
     quantity = this.activatedRoute.snapshot.paramMap.get('quantity');
 
     // Orders Sample Data
+
     orders: any = [{
         orderId: '#1',
         date: this.year,
