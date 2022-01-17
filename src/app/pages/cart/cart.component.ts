@@ -20,11 +20,15 @@ export class CartComponent implements OnInit {
     ) {
     }
 
+    d = new Date();
+    dd = String(this.d.getDate()).padStart(2, '0');
+    mm = String(this.d.getMonth() + 1).padStart(2, '0'); // January is 0!
+    yyyy = this.d.getFullYear();
+    fullDate = this.mm + '/' + this.dd + '/' + this.yyyy;
     cartProducts: Array<Product> = [];
     total = 0;
     inputQuantity = 1;
     webhookUrl = 'https://test.appcommconnect.com/webhook-test/toffer-post';
-    d = new Date();
     productList = {};
     orders = [];
 
@@ -92,7 +96,11 @@ export class CartComponent implements OnInit {
 
     // Go to checkout page
     async goToCheckout() {
-        await this.router.navigate(['/checkout']);
+        await this.router.navigate(['/checkout', {
+            year: this.fullDate,
+            total: this.total,
+            quantity: this.inputQuantity
+        }]);
     }
 
 
@@ -104,18 +112,22 @@ export class CartComponent implements OnInit {
     // getting input value
     getInputValue(value) {
         this.inputQuantity = value.quantity;
-        this.total = 1;
-        this.total += this.inputQuantity * value.price;
+        if (value === 1) {
+            this.total = value.price;
+        } else {
+            this.total = value.price;
+            this.total += this.inputQuantity * value.price;
+        }
+
     }
 
     sendPostRequest() {
-        this.orders.push( this.d.getDate(), this.inputQuantity, this.total);
+        this.orders.push(this.d.getDate(), this.inputQuantity, this.total);
 
         this.goToCheckout().then(r => this.storageService.clear());
         const headerOptions = {
             'Content-Type': 'application/x-www-form-urlencoded'
         };
-        this.storageService.setObject(this.orders, 'orders');
         return this.httpClient.post<any>(this.webhookUrl, this.inputQuantity, {headers: headerOptions}).subscribe(data => {
                 console.log('Subscribed Data: ');
                 console.log(data);

@@ -70,18 +70,17 @@
                                         id="addButton"
                                         style="zoom: 2"
                                         name="add-circle-outline"
-                                        style="color:black;"                                ></ion-icon>
+                                        color="medium"
+                                ></ion-icon>
                             </ion-col>
 
-                            <!-- Total Quantity -->
-                            <ion-col class="ion-text-center">{{ item.quantity }}</ion-col>
                             <!-- input Quantity -->
                             <input
                                     type="number"
                                     #input
                                     [(ngModel)]="item.quantity"
                                     (keyup)="getInputValue(item)"
-                                    style="width: 30px"
+                                    style="width: 40px"
                                     maxlength="5"
                                     min="1"
                                     max="5"

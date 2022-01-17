@@ -32,7 +32,7 @@
 }
 
 #cartTitle {
-  color: #a1a1a1;
+  color: black;
   font-size: 16px;
 }
 
@@ -42,7 +42,9 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-
+#inputQuantity{
+  align-items: center;
+}
 ion-footer {
 
   ion-toolbar {
@@ -52,6 +54,7 @@ ion-footer {
 
   ion-button {
     --box-shadow: -1px 1px 17px -3px white;
+
   }
 
   #checkout {
