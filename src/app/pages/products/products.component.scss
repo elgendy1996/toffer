@@ -7,6 +7,7 @@
 
   #grid .card-img {
     height: 150px;
+    display: grid;
   }
 
   #oneColumn .card-img {
@@ -16,6 +17,7 @@
   .product-name {
     font-size: 1.2rem;
     color: white;
+
   }
 
   .previous-price {

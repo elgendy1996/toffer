@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {StorageService} from 'src/app/services/storage.service';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-orders',
@@ -8,32 +8,22 @@ import {StorageService} from 'src/app/services/storage.service';
 })
 export class OrdersComponent implements OnInit {
 
-    d = new Date();
-
-    // Slider Options
-    slideOpts = {
-        initialSlide: 0,
-        autoplay: true,
-    };
+    year = this.activatedRoute.snapshot.paramMap.get('year');
+    total = this.activatedRoute.snapshot.paramMap.get('total');
+    quantity = this.activatedRoute.snapshot.paramMap.get('quantity');
 
     // Orders Sample Data
     orders: any = [{
-        orderId: 0,
-        date: '',
-        quantity: 0,
-        totalPrice: 0
+        orderId: '#1',
+        date: this.year,
+        quantity: this.quantity,
+        totalPrice: this.total
     }];
 
-    constructor(public storageService: StorageService,
-    ) {}
+    constructor( private router: Router,
+                 private activatedRoute: ActivatedRoute) {
+    }
 
     ngOnInit() {
-        this.storageService.getObject('orders').then((orders) => {
-
-            console.log('orders ' + orders);
-        });
-
-
-
     }
 }

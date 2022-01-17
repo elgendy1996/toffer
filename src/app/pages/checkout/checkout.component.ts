@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ModalController} from '@ionic/angular';
-import {Router} from '@angular/router';
 import {StorageService} from '../../services/storage.service';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-checkout',
@@ -12,10 +12,14 @@ export class CheckoutComponent implements OnInit {
 
     steps: any = [];
     cards: any = [];
+    year = this.activatedRoute.snapshot.paramMap.get('year');
+    total = this.activatedRoute.snapshot.paramMap.get('total');
+    quantity = this.activatedRoute.snapshot.paramMap.get('quantity');
 
     constructor(public storageService: StorageService,
                 public modalController: ModalController,
-                private router: Router) {
+                private router: Router,
+                private activatedRoute: ActivatedRoute) {
     }
 
     ngOnInit() {
@@ -55,7 +59,11 @@ export class CheckoutComponent implements OnInit {
 
     // Go to order page function
     gotoOrderPage() {
-        this.router.navigate(['/tabs/orders']);
+        this.router.navigate(['/tabs/orders', {
+            year: this.year,
+            total: this.total,
+            quantity: this.quantity
+        }]);
     }
 
     // Go to product page
